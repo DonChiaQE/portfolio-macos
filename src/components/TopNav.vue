@@ -1,8 +1,8 @@
 <template>
     <div class="navbar-container">
         <div class="nav-left">
-            <span class="iconify" data-icon="ion-logo-apple" data-inline="false"></span>
-            <div class="nav-text"><b>Finder</b></div>
+            <span class="iconify nav-text" data-icon="ion-logo-apple" data-inline="false"></span>
+            <div class="nav-text bold">Finder</div>
             <div class="nav-text hidden-small">File</div>
             <div class="nav-text hidden-small">Edit</div>
             <div class="nav-text hidden-small">View</div>
@@ -11,10 +11,10 @@
             <div class="nav-text hidden-small">Help</div>
         </div>
         <div class="nav-right">
-            <div class="date nav-text">
+            <div class="date text-right">
                 <span>{{moment(date).format('ddd DD MMMM')}}</span>
             </div>
-            <div class="time nav-text">
+            <div class="time text-right">
                 <!-- 11:22PM -->
                 <span>{{moment(date).format('hh:mm A')}}</span>
             </div>
@@ -45,22 +45,36 @@ export default {
 
 .nav-left {
     display: flex;
-    width: 400px;
-    justify-content: space-evenly;
+    width: auto;
+    margin-left: 15px;
+}
+
+.iconify {
+    margin-right: 5px;
 }
 
 .nav-text {
     font-size: 14px;
     font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .nav-right {
     display: flex;
-    width: 160px;
+    width: auto;
     justify-content: space-evenly;
+    margin-right: 12px;
 }
 
-b {
+.text-right {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.bold {
     font-weight: 900;
 }
 
