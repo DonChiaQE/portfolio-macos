@@ -2,11 +2,11 @@
     <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex}">
           <div class="bar-container">
               <div class="icon-nossaflex icon" v-on:click="$store.commit('toggleShownNossaflex', true)"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
+              <div class="icon-wip icon"></div>
+              <div class="icon-wip icon"></div>
+              <div class="icon-wip icon"></div>
+              <div class="icon-wip icon"></div>
+              <div class="icon-wip icon"></div>
           </div>
         </div>
 </template>
@@ -50,6 +50,13 @@
 
 .icon:hover{
     cursor: pointer;
+}
+
+.icon-wip {
+    background-image: url('data:image/png;base64,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');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .icon-nossaflex {
