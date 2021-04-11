@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <hello-there v-if="$store.getters.isShown"/>
-        <div class="wrapper" :class="{hidden: !$store.getters.isShown}">
+        <div class="wrapper" :class="{hidden: $store.getters.isFullscreen}">
           <div class="bar-container">
               <div class="icon" v-on:click="$store.commit('toggleShown', true)"></div>
               <div class="icon"></div>
@@ -50,7 +50,7 @@ export default {
 }
 
 .hidden {
-    display: hidden !important;
+    display: none !important;
 }
 
 body {
