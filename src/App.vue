@@ -1,27 +1,33 @@
 <template>
     <div id="app">
-        <hello-there :shownProp="isShown" v-if="isShown"/>
+        <hello-there :shownProp="this.isShown" v-if="isShown"/>
         <div class="wrapper">
-        <div class="bar-container">
-            <div class="icon" v-on:click="toggleShow"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
+          <div class="bar-container">
+              <div class="icon" v-on:click="toggleShow"></div>
+              <div class="icon"></div>
+              <div class="icon"></div>
+              <div class="icon"></div>
+              <div class="icon"></div>
+              <div class="icon"></div>
+          </div>
         </div>
-    </div>
     </div>
 </template>
 
 <script>
 import HelloThere from './components/HelloThere.vue'
+// import store from './store.js';
+import { reactive } from 'vue';
 export default {
     name: 'App',
     data: function() {
         return {
-            isShown: false
+            // isShown: store.isShown,
         }
+    },
+    setup() {
+      const isShown = reactive({ isShown: false });
+      return { isShown };
     },
     components: {
         HelloThere,
@@ -52,10 +58,6 @@ export default {
 body {
     margin: 0;
     padding: 0;
-}
-
-.hide {
-  display: hidden;
 }
 
 body {
