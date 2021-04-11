@@ -19,21 +19,22 @@
 .bar-container {
     width: auto;
     height: 70px;
-    background-color: rgba(255, 255, 255, .15);  
-    backdrop-filter: blur(10px);  
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid  rgb(255, 255, 255, 0.2);
+    border: 1px solid rgb(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .wrapper {
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .icon {
