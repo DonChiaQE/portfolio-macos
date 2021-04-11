@@ -3,12 +3,12 @@
         <div class="nav-left">
             <span class="iconify" data-icon="ion-logo-apple" data-inline="false"></span>
             <div class="nav-text"><b>Finder</b></div>
-            <div class="nav-text">File</div>
-            <div class="nav-text">Edit</div>
-            <div class="nav-text">View</div>
-            <div class="nav-text">Go</div>
-            <div class="nav-text">Window</div>
-            <div class="nav-text">Help</div>
+            <div class="nav-text hidden-small">File</div>
+            <div class="nav-text hidden-small">Edit</div>
+            <div class="nav-text hidden-small">View</div>
+            <div class="nav-text hidden-small">Go</div>
+            <div class="nav-text hidden-small">Window</div>
+            <div class="nav-text hidden-small">Help</div>
         </div>
         <div class="nav-right">
             <div class="date nav-text">
@@ -62,5 +62,14 @@ export default {
 
 b {
     font-weight: 900;
+}
+
+@media only screen and (max-width: 600px) {
+    .hidden-small {
+        display: none;
+    }
+    .nav-left {
+        width: 100px;
+    }
 }
 </style>
