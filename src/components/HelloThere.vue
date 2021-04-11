@@ -4,7 +4,7 @@
         <div class="about-me" id="container" :class="{ fullscreen: isFullscreen, close: !isShown}">
             <div class="top-bar" id="top-bar" v-on:dblclick="toggleSize">
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="toggleShow"></div>
+                    <div class="button-red" v-on:click="$store.commit('toggleShown', false)"></div>
                     <div class="button-yellow"></div>
                     <div class="button-green" v-on:click="toggleSize"></div>
                 </div>
@@ -200,7 +200,7 @@ export default {
     data: function() {
         return {
             isFullscreen: false,
-            isShown: this.shownProp
+            isShown: this.$store.getters.isShown
         }
     },
     methods: {
@@ -208,9 +208,8 @@ export default {
             this.isFullscreen = !this.isFullscreen;
         },
         toggleShow: function() {
-            this.isShown = !this.isShown
-            console.log(this.isShown)
-            console.log("printed from hellothere")
+            // this.isShown = false
+            // this.isShown = this.$store.commit('shownFalse')
         }
     },
     mounted: function() {

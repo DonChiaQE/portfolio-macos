@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <hello-there :shownProp="this.isShown" v-if="isShown"/>
+        <hello-there v-if="$store.getters.isShown"/>
         <div class="wrapper">
           <div class="bar-container">
-              <div class="icon" v-on:click="toggleShow"></div>
+              <div class="icon" v-on:click="$store.commit('toggleShown', true)"></div>
               <div class="icon"></div>
               <div class="icon"></div>
               <div class="icon"></div>
@@ -16,26 +16,20 @@
 
 <script>
 import HelloThere from './components/HelloThere.vue'
-// import store from './store.js';
-import { reactive } from 'vue';
 export default {
     name: 'App',
     data: function() {
         return {
-            // isShown: store.isShown,
+            
         }
-    },
-    setup() {
-      const isShown = reactive({ isShown: false });
-      return { isShown };
     },
     components: {
         HelloThere,
     },
     methods: {
-        toggleShow: function() {
-            this.isShown = !this.isShown
-        }
+        // toggleShow: function() {
+        //     this.isShown = !this.isShown
+        // }
     },
     computed() {
       console.log(this.isShown)
