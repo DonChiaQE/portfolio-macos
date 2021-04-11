@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <TopNav />
         <hello-there v-if="$store.getters.isShownNossaflex"/>
         <navbar/>
     </div>
@@ -8,6 +9,7 @@
 <script>
 import HelloThere from './components/NossaflexModal.vue'
 import Navbar from './components/Navbar'
+import TopNav from './components/TopNav'
 export default {
     name: 'App',
     data: function() {
@@ -17,7 +19,8 @@ export default {
     },
     components: {
         HelloThere,
-        Navbar
+        Navbar,
+        TopNav
     },
     methods: {
         // toggleShow: function() {
