@@ -1,12 +1,12 @@
 /* eslint-disable */
 <template>
     <div class="flex-container" id="flex-container">
-        <div class="about-me" id="container" :class="{ fullscreen: isFullscreen, close: !isShown}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="toggleSize">
+        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreen, close: !$store.getters.isShown}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreen')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="$store.commit('toggleShown', false)"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="toggleSize"></div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreen')"></div>
                 </div>
             </div>
             <div class="bar"></div>
@@ -195,22 +195,15 @@ img {
 <script>
 export default {
     props: {
-        shownProp: Boolean
+        // shownProp: Boolean
     },
     data: function() {
         return {
-            isFullscreen: false,
-            isShown: this.$store.getters.isShown
+
         }
     },
     methods: {
-        toggleSize: function() {
-            this.isFullscreen = !this.isFullscreen;
-        },
-        toggleShow: function() {
-            // this.isShown = false
-            // this.isShown = this.$store.commit('shownFalse')
-        }
+        
     },
     mounted: function() {
         

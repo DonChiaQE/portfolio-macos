@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <hello-there v-if="$store.getters.isShown"/>
-        <div class="wrapper">
+        <div class="wrapper" :class="{hidden: !$store.getters.isShown}">
           <div class="bar-container">
               <div class="icon" v-on:click="$store.commit('toggleShown', true)"></div>
               <div class="icon"></div>
@@ -49,9 +49,14 @@ export default {
     overflow: hidden;
 }
 
+.hidden {
+    display: hidden !important;
+}
+
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
@@ -81,9 +86,7 @@ body {
 }
 
 .wrapper {
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     position: fixed;
