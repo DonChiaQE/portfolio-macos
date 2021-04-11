@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
     <div class="flex-container" id="flex-container">
-        <div class="about-me" id="container" :class="{ fullscreen: isFullscreen, close: isShown }">
+        <div class="about-me" id="container" :class="{ fullscreen: isFullscreen, close: !isShown}">
             <div class="top-bar" id="top-bar" v-on:dblclick="toggleSize">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="toggleShow"></div>
@@ -45,6 +45,10 @@
 
 .close {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .top-bar {
@@ -191,12 +195,12 @@ img {
 <script>
 export default {
     props: {
-
+        shownProp: Boolean
     },
     data: function() {
         return {
             isFullscreen: false,
-            isShown: false
+            isShown: this.shownProp
         }
     },
     methods: {
@@ -205,6 +209,8 @@ export default {
         },
         toggleShow: function() {
             this.isShown = !this.isShown
+            console.log(this.isShown)
+            console.log("printed from hellothere")
         }
     },
     mounted: function() {
