@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex}">
+    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex}">
           <div class="bar-container">
               <div class="icon-nossaflex icon" v-on:click="$store.commit('toggleShownNossaflex', true)"></div>
               <div class="icon"></div>
