@@ -1,21 +1,13 @@
 <template>
     <div id="app">
-        <hello-there v-if="$store.getters.isShown"/>
-        <div class="wrapper" :class="{hidden: $store.getters.isFullscreen}">
-          <div class="bar-container">
-              <div class="icon" v-on:click="$store.commit('toggleShown', true)"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-              <div class="icon"></div>
-          </div>
-        </div>
+        <hello-there v-if="$store.getters.isShownNossaflex"/>
+        <navbar/>
     </div>
 </template>
 
 <script>
-import HelloThere from './components/HelloThere.vue'
+import HelloThere from './components/NossaflexModal.vue'
+import Navbar from './components/Navbar'
 export default {
     name: 'App',
     data: function() {
@@ -25,6 +17,7 @@ export default {
     },
     components: {
         HelloThere,
+        Navbar
     },
     methods: {
         // toggleShow: function() {
@@ -32,7 +25,7 @@ export default {
         // }
     },
     computed() {
-      console.log(this.isShown)
+      
     }
 }
 </script>

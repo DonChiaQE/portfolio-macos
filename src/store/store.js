@@ -5,29 +5,26 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    isShown: false,
-    isFullscreen: false,
+    isShownNossaflex: true,
+    isFullscreenNossaflex: false,
   },
   mutations: {
-    toggleShown(state, shownBool) {
-      state.isShown = shownBool
+    toggleShownNossaflex(state, shownBool) {
+      state.isShownNossaflex = shownBool
     },
-    toggleFullscreen(state) {
-      state.isFullscreen = !state.isFullscreen
-      console.log(state.isFullscreen)
+    toggleFullscreenNossaflex(state) {
+      state.isFullscreenNossaflex = !state.isFullscreenNossaflex
     }
   },
   actions: {
     
   },
   getters: {
-    // isShown: state => state.isShown,
-    // isFullscreen: state => state.isFullscreen,
-    isShown: state => {
-      return state.isShown
+    isShownNossaflex: state => {
+      return state.isShownNossaflex
     },
-    isFullscreen: state => {
-      return state.isFullscreen
+    isFullscreenNossaflex: state => {
+      return state.isFullscreenNossaflex
     },
   }
 })
