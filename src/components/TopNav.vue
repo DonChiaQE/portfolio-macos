@@ -1,7 +1,7 @@
 <template>
     <div class="navbar-container">
         <div class="nav-left">
-            <span class="iconify nav-text" data-icon="ion-logo-apple" data-inline="false"></span>
+            <span class="iconify nav-text" data-icon="ion-logo-apple" data-inline="false" style=""></span>
             <div class="nav-text bold">Finder</div>
             <div class="nav-text hidden-small">File</div>
             <div class="nav-text hidden-small">Edit</div>
@@ -84,6 +84,18 @@ export default {
     }
     .nav-left {
         width: 100px;
+        margin-left: 5px;
+    }
+    .nav-right {
+        margin-right: 5px;
+    }
+    .text-right {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .nav-text {
+        margin-right: 5px;
+        margin-left: 5px;
     }
 }
 </style>

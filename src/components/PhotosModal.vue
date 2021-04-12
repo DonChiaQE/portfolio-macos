@@ -1,19 +1,19 @@
 /* eslint-disable */
 <template>
     <!-- <div class="flex-container" id="flex-container"> -->
-        <interact draggable :dragOption="dragOption"  class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
-        <div class="about-me" id="container"  :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
-                        <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
+        <interact draggable :dragOption="dragOption"  class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenPhotos}">
+        <div class="about-me" id="container"  :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
+                        <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
                             <div class="triple-button">
-                                <div class="button-red" v-on:click="$store.commit('toggleShownNossaflex', false)"></div>
+                                <div class="button-red" v-on:click="$store.commit('toggleShownPhotos', false)"></div>
                                 <div class="button-yellow"></div>
-                                <div class="button-green" v-on:click="$store.commit('toggleFullscreenNossaflex')"></div>
+                                <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
                             </div>
                         </div>
                         <div class="bar"></div>
                         <div class="content">
                             <div class="scroll-container">
-                                <div class="header">lorem</div>
+                                <div class="header">Photos</div>
                                 <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
                                     tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
                                     nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
@@ -58,6 +58,7 @@
     height: 100vh;
     width: 100%;
     touch-action: none;
+    background: green;
 }
 
 .about-me {
@@ -307,15 +308,16 @@ export default {
                 movementX: 0,
                 movementY: 0
             },
+            resizeOption: {
+                edges: { left: true, right: true, bottom: true, top: true }
+            },
             dragOption: {
                 modifiers: [
-                    
                     interact.modifiers.restrictRect({
                         restriction: "parent",
                         endOnly: true
                     })
                 ],
-                autoScroll: true,
             },
             // values for interact.js transformation
             x: 0,
