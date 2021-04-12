@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <TopNav />
-        <div class="screen" style="position: relative;">
-            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style="z-index: 1; position: absolute; left: 50px; top: 50px;" @click.native="focusNoss"/>
-            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style="z-index: 2; position: absolute;" @click.native="focusPhotos"/>
+        <div class="screen" id="screen" style="position: relative;">
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style="z-index: 1; position: absolute; left: 50px; top: 50px;" @click.native="focusNoss" @mousedown="focusNoss" @mousemove="focusNoss"/>
+            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style="z-index: 2; position: absolute;" @click.native="focusPhotos" @mousedown="focusPhotos" @mousemove="focusPhotos"/>
         </div>
         <navbar/>
     </div>
@@ -14,12 +14,12 @@ import NossaflexModal from './components/NossaflexModal.vue'
 import Navbar from './components/Navbar'
 import TopNav from './components/TopNav'
 import PhotosModal from './components/PhotosModal.vue'
+
 export default {
     name: 'App',
     data: function() {
         return {
-            makeTop: 4,
-            zIndexString: String
+
         }
     },
     components: {
@@ -31,15 +31,13 @@ export default {
     methods: {
         focusPhotos() {
             this.makeTop += 1
-            document.getElementById('photos').style.zIndex = this.makeTop;
-            document.getElementById('noss').style.zIndex = this.makeTop-1;
-            console.log(this.makeTop)
+            document.getElementById('photos').style.zIndex = 4;
+            document.getElementById('noss').style.zIndex = 0;
         },
         focusNoss() {
             this.makeTop += 1
-            document.getElementById('noss').style.zIndex = this.makeTop;
-            document.getElementById('photos').style.zIndex = this.makeTop-1;
-            console.log(this.makeTop)
+            document.getElementById('noss').style.zIndex = 4;
+            document.getElementById('photos').style.zIndex = 0;
         },
         onClickLog() {
             alert("Hello! I am an alert box!!");

@@ -5,7 +5,7 @@
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="$store.commit('toggleShownPhotos', false)"></div>
-                    <div class="button-yellow" ></div>
+                    <div class="button-yellow"></div>
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
                 </div>
             </div>
@@ -13,13 +13,13 @@
             <div class="content">
                 <div class="scroll-container">
                     <div class="header">Photos</div>
-    
+                    
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                            <div class="resizer resizer-l"></div>
-                            <div class="resizer resizer-t"></div>
-                            <div class="resizer resizer-r"></div> -->
+                                        <div class="resizer resizer-l"></div>
+                                        <div class="resizer resizer-t"></div>
+                                        <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -175,11 +175,11 @@
     align-items: center;
 }
 
-img {
+/* img {
     height: 140px;
     width: 140px;
     border-radius: 50%;
-}
+} */
 
 .content {
     display: flex;
@@ -187,7 +187,7 @@ img {
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
 }
 
 .header {
@@ -198,8 +198,9 @@ img {
 
 .scroll-container {
     overflow: scroll;
-    padding-left: 50px;
-    padding-right: 50px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    width: 100%;
     padding-top: 20px;
 }
 
