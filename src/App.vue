@@ -2,8 +2,8 @@
     <div id="app">
         <TopNav />
         <div class="screen" style="position: relative;">
-        <nossaflex-modal v-if="$store.getters.isShownNossaflex" style="z-index: 500; position: absolute; left: 50px; top: 50px;" />
-        <photos-modal v-if="$store.getters.isShownPhotos" style="position: absolute; " />
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style="z-index: 1; position: absolute; left: 50px; top: 50px;" @click.native="focusNoss"/>
+            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style="z-index: 2; position: absolute;" @click.native="focusPhotos"/>
         </div>
         <navbar/>
     </div>
@@ -18,7 +18,8 @@ export default {
     name: 'App',
     data: function() {
         return {
-            makeTop: 4
+            makeTop: 4,
+            zIndexString: String
         }
     },
     components: {
@@ -27,13 +28,25 @@ export default {
         Navbar,
         TopNav
     },
-     methods: {
-        // toggleShow: function() {
-        //     this.isShown = !this.isShown
-        // }
+    methods: {
+        focusPhotos() {
+            this.makeTop += 1
+            document.getElementById('photos').style.zIndex = this.makeTop;
+            document.getElementById('noss').style.zIndex = this.makeTop-1;
+            console.log(this.makeTop)
+        },
+        focusNoss() {
+            this.makeTop += 1
+            document.getElementById('noss').style.zIndex = this.makeTop;
+            document.getElementById('photos').style.zIndex = this.makeTop-1;
+            console.log(this.makeTop)
+        },
+        onClickLog() {
+            alert("Hello! I am an alert box!!");
+        }
     },
     computed() {
-      
+
     }
 }
 </script>
@@ -74,11 +87,11 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-    background-image: url('./assets/dark.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
+        background-image: url('./assets/dark.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 .bar-container {

@@ -1,8 +1,8 @@
 <template>
-    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex}">
+    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos}">
           <div class="bar-container">
               <div class="icon-nossaflex icon" v-on:click="$store.commit('toggleShownNossaflex', true)"></div>
-              <div class=" icon" v-on:click="$store.commit('toggleShownPhotos', true)"></div>
+              <div class="icon-photo icon" v-on:click="$store.commit('toggleShownPhotos', true)"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
@@ -81,6 +81,13 @@
 
 .icon-nossaflex {
     background-image: url('../assets/NossaflexLight.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-photo {
+    background-image: url('../assets/Photo.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

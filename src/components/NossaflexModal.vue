@@ -1,54 +1,51 @@
 /* eslint-disable */
 <template>
-    <!-- <div class="flex-container" id="flex-container"> -->
-        <interact draggable :dragOption="dragOption"  class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
-        <div class="about-me" id="container"  :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
-                        <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
-                            <div class="triple-button">
-                                <div class="button-red" v-on:click="$store.commit('toggleShownNossaflex', false)"></div>
-                                <div class="button-yellow"></div>
-                                <div class="button-green" v-on:click="$store.commit('toggleFullscreenNossaflex')"></div>
-                            </div>
-                        </div>
-                        <div class="bar"></div>
-                        <div class="content">
-                            <div class="scroll-container">
-                                <div class="header">lorem</div>
-                                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                                    tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                                    nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                                <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
-                                    et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
-                                    sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
-                                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                                    tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                                    nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                                    tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                                    nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                            </div>
-                        </div>
-                        <!-- <div class="resizer resizer-b"></div>
-                        <div class="resizer resizer-l"></div>
-                        <div class="resizer resizer-t"></div>
-                        <div class="resizer resizer-r"></div> -->
-                    </div>
-            </interact>
-    <!-- </div> -->
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
+        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
+                <div class="triple-button">
+                    <div class="button-red" v-on:click="$store.commit('toggleShownNossaflex', false)"></div>
+                    <div class="button-yellow"></div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenNossaflex')"></div>
+                </div>
+            </div>
+            <div class="bar"></div>
+            <div class="content">
+                <div class="scroll-container">
+                    <div class="header">lorem</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
+                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
+                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                </div>
+            </div>
+            <!-- <div class="resizer resizer-b"></div>
+                            <div class="resizer resizer-l"></div>
+                            <div class="resizer resizer-t"></div>
+                            <div class="resizer resizer-r"></div> -->
+        </div>
+    </interact>
 </template>
 
 <style scoped>
 .resize-drag {
-  box-sizing: border-box;
-  background: none;
-  user-select: auto;
-  -ms-touch-action: auto;
-  touch-action: auto;
-  min-height: 40px;
-  min-width: 350px;
-  position: sticky;
-  cursor: auto  !important;
-
+    box-sizing: border-box;
+    background: none;
+    user-select: auto;
+    -ms-touch-action: auto;
+    touch-action: auto;
+    min-height: 40px;
+    min-width: 350px;
+    position: sticky;
+    cursor: auto !important;
 }
 
 .flex-container {
@@ -71,23 +68,20 @@
     border: 1px solid #dadada;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
     /* transition: all 0.5s ease; */
-
     max-height: 100%;
     max-width: 100%;
     align-items: flex-end;
 }
 
 @media only screen and (max-width: 600px) {
-    .resize-drag {
-        padding: 5px;
-    }
     .about-me {
         min-width: 50vw;
+        width: 90vw;
+        max-width: 100vw;
     }
-
     .scroll-container {
-        padding-left: 25px  !important;
-        padding-right: 25px  !important;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
     }
 }
 
@@ -309,7 +303,7 @@ export default {
             },
             dragOption: {
                 modifiers: [
-                    
+
                     interact.modifiers.restrictRect({
                         restriction: "parent",
                         endOnly: true
