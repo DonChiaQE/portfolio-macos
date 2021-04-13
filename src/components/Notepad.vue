@@ -74,6 +74,7 @@ textarea {
     caret-color: black;
     color: black;
     font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 </style>
 
