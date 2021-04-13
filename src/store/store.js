@@ -8,7 +8,9 @@ export const store = new Vuex.Store({
     isShownNossaflex: true,
     isFullscreenNossaflex: false,
     isShownPhotos: false,
-    isFullscreenPhotos: false
+    isFullscreenPhotos: false,
+    isShownStickies: false,
+    isFullscreenStickies: false
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -22,6 +24,12 @@ export const store = new Vuex.Store({
     },
     toggleFullscreenPhotos(state) {
       state.isFullscreenPhotos = !state.isFullscreenPhotos
+    },
+    toggleShownStickies(state, shownBool) {
+      state.isShownStickies = shownBool
+    },
+    toggleFullscreenStickies(state) {
+      state.isFullscreenStickies = !state.isFullscreenStickies
     }
   },
   actions: {
@@ -39,6 +47,12 @@ export const store = new Vuex.Store({
     },
     isFullscreenPhotos: state => {
       return state.isFullscreenPhotos
+    },
+    isShownStickies: state => {
+      return state.isShownStickies
+    },
+    isFullscreenStickies: state => {
+      return state.isFullscreenStickies
     },
   }
 })

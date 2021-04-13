@@ -1,12 +1,12 @@
 <template>
-    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos}">
+    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
           <div class="bar-container">
               <div class="icon-nossaflex icon" v-on:click="$store.commit('toggleShownNossaflex', true)"></div>
               <div class="icon-photo icon" v-on:click="$store.commit('toggleShownPhotos', true)"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
-              <div class="icon-wip icon"></div>
+              <div class="icon-stickies icon" v-on:click="$store.commit('toggleShownStickies', true)"></div>
           </div>
         </div>
 </template>
@@ -88,6 +88,13 @@
 
 .icon-photo {
     background-image: url('../assets/Photo.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-stickies {
+    background-image: url('../assets/Stickies.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
