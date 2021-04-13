@@ -2,9 +2,9 @@
     <div id="app">
         <TopNav />
         <div class="screen" id="screen" style="position: relative;">
-            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" @mousedown="focusNoss" @mousemove="focusNoss"/>
-            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" @mousedown="focusPhotos" @mousemove="focusPhotos"/>
-            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies"/>
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="$store.commit('zIndexIncrement', 'noss', 'stickies', 'photos')"/>
+            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="$store.commit('zIndexIncrement', 'photos', 'stickies', 'noss')"/>
+            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="$store.commit('zIndexIncrement', 'stickies', 'noss', 'photos')"/>
         </div>
         <navbar/>
     </div>
@@ -33,19 +33,19 @@ export default {
     },
     methods: {
         focusPhotos() {
-            document.getElementById('photos').style.zIndex = 4;
-            document.getElementById('noss').style.zIndex = 0;
-            document.getElementById('stickies').style.zIndex = 0;
+            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex+1;
+            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex;
+            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex;
         },
         focusNoss() {
-            document.getElementById('noss').style.zIndex = 4;
-            document.getElementById('photos').style.zIndex = 0;
-            document.getElementById('stickies').style.zIndex = 0;
+            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex+1;
+            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex;
+            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex;
         },
         focusStickies() {
-            document.getElementById('stickies').style.zIndex = 4;
-            document.getElementById('photos').style.zIndex = 0;
-            document.getElementById('noss').style.zIndex = 0;
+            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex+1;
+            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex;
+            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex;
         },
         onClickLog() {
             alert("Hello! I am an alert box!!");

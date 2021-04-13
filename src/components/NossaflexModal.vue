@@ -12,7 +12,7 @@
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container">
-                    <div class="header">lorem</div>
+                    <div class="header">NOSSAFLEX</div>
                     <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
                         tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
                         nisi. Duis eget leo massa. Nunc at gravida nibh.</div>

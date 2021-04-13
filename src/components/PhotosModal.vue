@@ -13,6 +13,18 @@
             <div class="content">
                 <div class="scroll-container">
                     <div class="header">Photos</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
+                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
+                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -60,6 +72,11 @@
     max-height: 100%;
     max-width: 100%;
     align-items: flex-end;
+}
+
+.scroll-container {
+    overflow: scroll;
+    padding-top: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -186,7 +203,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    /* padding-bottom: 30px; */
+    padding-bottom: 30px;
 }
 
 .header {
@@ -197,9 +214,8 @@
 
 .scroll-container {
     overflow: scroll;
-    /* padding-left: 50px;
-    padding-right: 50px; */
-    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-top: 20px;
 }
 
