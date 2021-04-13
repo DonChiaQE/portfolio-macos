@@ -1,50 +1,55 @@
+/* eslint-disable */
 <template>
-    <div id="mydiv" :class="{ fullscreen: $store.getters.isFullscreenStickies, close: !$store.getters.isShownStickies}">
-        <div id="mydivheader" v-on:dblclick="$store.commit('toggleFullscreenStickies')">
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenStickies}">
+        <!-- <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
+                <div class="triple-button">
+                    <div class="button-red" v-on:click="$store.commit('toggleShownPhotos', false)"></div>
+                    <div class="button-yellow"></div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
+                </div>
+            </div>
+            <div class="bar"></div>
+            <div class="content">
+                <div class="scroll-container">
+                    <div class="header">Photos</div>
+                </div>
+            </div>
+        </div> -->
+        <div id="container" :class="{ fullscreen: $store.getters.isFullscreenStickies, close: !$store.getters.isShownStickies}">
+        <div id="mydivheader" class="top-bar" v-on:dblclick="$store.commit('toggleFullscreenStickies')">
             <div class="close-button" v-on:click="$store.commit('toggleShownStickies', false)"></div>
         </div>
         <textarea>Why are you looking at this?</textarea>
     </div>
+    </interact>
 </template>
 
 <style scoped>
-#mydiv {
-    position: absolute;
-    z-index: 9;
+#container {
     width: 300px;
     height: 250px;
     background: #fdf4a7;
     border: solid 1px rgb(123, 123, 123, 0.5);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    left: 50px;
-    top: 50px;
-    -ms-touch-action: none;
-    touch-action: none;
 }
-
 #mydivheader {
     height: 15px;
     width: 100%;
     background: #fbeb61;
     display: flex;
     align-items: center;
-    z-index: 10;
-    -ms-touch-action: none;
-    touch-action: none;
 }
-
 .fullscreen {
     width: 100% !important;
     height: 100vh !important;
     margin: 0;
-    /* transition: all 0.5s ease; */
+    transition: all 0.5s ease;
     padding: 0;
 }
-
 .close {
     display: none;
 }
-
 .close-button {
     width: 6px;
     height: 6px;
@@ -52,11 +57,9 @@
     background: #fdf4a7;
     margin-left: 15px;
 }
-
 .close-button:hover {
     cursor: pointer;
 }
-
 textarea {
     width: 100%;
     height: 90%;
@@ -75,95 +78,213 @@ textarea {
 </style>
 
 <script>
+import interact from "interactjs";
 export default {
-    mounted() {
-        dragElement(document.getElementById("mydiv"));
-        touchDragElement(document.getElementById("mydiv"));
+    props: {
+        // shownProp: Boolean
+    },
+    data: function() {
+        return {
+            positions: {
+                clientX: undefined,
+                clientY: undefined,
+                movementX: 0,
+                movementY: 0
+            },
+            resizeOption: {
+                edges: { left: true, right: true, bottom: true, top: true }
+            },
+            dragOption: {
+                modifiers: [
+                    interact.modifiers.restrictRect({
+                        restriction: "parent",
+                        endOnly: true,
+                    })
+                ],
+                // ignoreFrom: 'textarea',
+                allowFrom: '.top-bar',
+            },
+            // values for interact.js transformation
+            x: 0,
+            y: 0,
 
-        function dragElement(elmnt) {
-            var pos1 = 0,
-                pos2 = 0,
-                pos3 = 0,
-                pos4 = 0;
-            if (document.getElementById(elmnt.id + "header")) {
-                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            } else {
-                elmnt.onmousedown = dragMouseDown;
-            }
+        }
+    },
+    computed: {
+        style() {
+            return {
+                height: `${this.h}px`,
+                width: `${this.w}px`,
+                transform: `translate(${this.x}px, ${this.y}px)`,
+            };
+        }
+    },
+    methods: {
+        dragmove(event) {
+            this.x += event.dx;
+            this.y += event.dy;
+        },
+        resizemove(event) {
+            this.w = event.rect.width;
+            this.h = event.rect.height;
 
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
-                document.onmousemove = elementDrag;
-            }
+            this.x += event.deltaRect.left;
+            this.y += event.deltaRect.top;
+        },
+        dragMouseDown: function(event) {
+            event.preventDefault()
+            // get the mouse cursor position at startup:
+            this.positions.clientX = event.clientX
+            this.positions.clientY = event.clientY
+            document.onmousemove = this.elementDrag
+            document.onmouseup = this.closeDragElement
+        },
+        elementDrag: function(event) {
+            event.preventDefault()
+            this.positions.movementX = this.positions.clientX - event.clientX
+            this.positions.movementY = this.positions.clientY - event.clientY
+            this.positions.clientX = event.clientX
+            this.positions.clientY = event.clientY
+            // set the element's new position:
+            this.$refs.draggableContainer.style.top = (this.$refs.draggableContainer.offsetTop - this.positions.movementY) + 'px'
+            this.$refs.draggableContainer.style.left = (this.$refs.draggableContainer.offsetLeft - this.positions.movementX) + 'px'
+        },
+        closeDragElement() {
+            document.onmouseup = null
+            document.onmousemove = null
+        },
+        onClickLog() {
+            alert("Hello! I am an alert box!!");
+        }
+    },
+    mounted: function() {
+        // Query the element
+        const ele = document.getElementById('container');
 
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-                elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-            }
+        // The current position of mouse
+        let x = 0;
+        let y = 0;
 
-            function closeDragElement() {
-                document.onmouseup = null;
-                document.onmousemove = null;
-            }
+        // The dimension of the element
+        let w = 0;
+        let h = 0;
+
+        const mouseDownHandlerRight = function(e) {
+            x = e.clientX;
+
+            const styles = window.getComputedStyle(ele)
+            w = parseInt(styles.width, 10);
+
+            document.addEventListener('mousemove', mouseMoveHandlerRight);
+            document.addEventListener('mouseup', mouseUpHandlerRight);
         }
 
-        function touchDragElement(elmnt) {
-            console.log("touched")
-            var pos1 = 0,
-                pos2 = 0,
-                pos3 = 0,
-                pos4 = 0;
-            if (document.getElementById(elmnt.id + "header")) {
-                document.getElementById(elmnt.id + "header").ontouchstart = dragMouseDown;
-            } else {
-                elmnt.ontouchstart = dragMouseDown;
-            }
+        const mouseDownHandlerLeft = function(e) {
+            x = e.clientX;
 
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                // pos3 = e.clientX;
-                // pos4 = e.clientY;
-                // document.ontouchend = closeDragElement;
-                // document.ontouchmove = elementDrag;
-                // grab the location of touch
-    //          box.style.left = touchLocation.pageX + 'px';
-    //          box.style.top = touchLocation.pageY + 'px';
-                var touchLocation = e.touches[0];
-                pos3 = touchLocation.clientX
-                pos4 = touchLocation.clientY
-                document.ontouchend = closeDragElement;
-                document.ontouchmove = elementDrag;
-            }
+            const styles = window.getComputedStyle(ele)
+            w = parseInt(styles.width, 10);
 
-            function elementDrag(e) {
-                console.log('touch drag')
-                e = e || window.event;
-                e.preventDefault();
-                pos1 = pos3 - e.touches[0].clientX;
-                pos2 = pos4 - e.touches[0].clientY;
-                pos3 = e.touches[0].clientX;
-                pos4 = e.touches[0].clientY;
-                elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-                elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-            }
-
-            function closeDragElement() {
-                console.log('touch end')
-                document.ontouchend = null;
-                document.ontouchmove = null;
-            }
+            document.addEventListener('mousemove', mouseMoveHandlerLeft);
+            document.addEventListener('mouseup', mouseUpHandlerLeft);
         }
+
+        const mouseDownHandlerUp = function(e) {
+            y = e.clientY;
+
+            const styles = window.getComputedStyle(ele)
+            h = parseInt(styles.height, 10);
+
+            document.addEventListener('mousemove', mouseMoveHandlerUp);
+            document.addEventListener('mouseup', mouseUpHandlerUp);
+        }
+
+        const mouseDownHandlerDown = function(e) {
+            y = e.clientY;
+
+            const styles = window.getComputedStyle(ele)
+            h = parseInt(styles.height, 10);
+
+            document.addEventListener('mousemove', mouseMoveHandlerDown);
+            document.addEventListener('mouseup', mouseUpHandlerDown);
+        }
+
+        const mouseMoveHandlerUp = function(e) {
+            // How far the mouse has been moved
+            const dy = e.clientY - y;
+
+            // Adjust the dimension of element
+            ele.style.height = `${h - dy}px`;
+        };
+
+        const mouseMoveHandlerDown = function(e) {
+            // How far the mouse has been moved
+            const dy = e.clientY - y;
+
+            // Adjust the dimension of element
+            ele.style.height = `${h + dy}px`;
+        };
+
+        const mouseMoveHandlerRight = function(e) {
+            // How far the mouse has been moved
+            const dx = e.clientX - x;
+
+            // Adjust the dimension of element
+            ele.style.width = `${w + dx}px`;
+        };
+
+        const mouseMoveHandlerLeft = function(e) {
+            // How far the mouse has been moved
+            const dx = e.clientX - x;
+
+            // Adjust the dimension of element
+            ele.style.width = `${w - dx}px`;
+        };
+
+        const mouseUpHandlerUp = function() {
+            // Remove the handlers of `mousemove` and `mouseup`
+            document.removeEventListener('mousemove', mouseMoveHandlerUp);
+            document.removeEventListener('mouseup', mouseUpHandlerUp);
+        };
+
+        const mouseUpHandlerDown = function() {
+            // Remove the handlers of `mousemove` and `mouseup`
+            document.removeEventListener('mousemove', mouseMoveHandlerDown);
+            document.removeEventListener('mouseup', mouseUpHandlerDown);
+        };
+
+        const mouseUpHandlerRight = function() {
+            // Remove the handlers of `mousemove` and `mouseup`
+            document.removeEventListener('mousemove', mouseMoveHandlerRight);
+            document.removeEventListener('mouseup', mouseUpHandlerRight);
+        };
+
+        const mouseUpHandlerLeft = function() {
+            // Remove the handlers of `mousemove` and `mouseup`
+            document.removeEventListener('mousemove', mouseMoveHandlerLeft);
+            document.removeEventListener('mouseup', mouseUpHandlerLeft);
+        };
+        // Query all resizers
+        const resizersRight = ele.querySelectorAll('.resizer-r');
+        const resizersUp = ele.querySelectorAll('.resizer-t');
+        const resizersDown = ele.querySelectorAll('.resizer-b');
+        const resizersLeft = ele.querySelectorAll('.resizer-l');
+
+        [].forEach.call(resizersRight, function(resizer) {
+            resizer.addEventListener('mousedown', mouseDownHandlerRight);
+        });
+
+        [].forEach.call(resizersUp, function(resizer) {
+            resizer.addEventListener('mousedown', mouseDownHandlerUp);
+        });
+
+        [].forEach.call(resizersDown, function(resizer) {
+            resizer.addEventListener('mousedown', mouseDownHandlerDown);
+        });
+
+        [].forEach.call(resizersLeft, function(resizer) {
+            resizer.addEventListener('mousedown', mouseDownHandlerLeft);
+        });
     }
 }
 </script>

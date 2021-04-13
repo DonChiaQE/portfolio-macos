@@ -309,7 +309,7 @@ export default {
                         endOnly: true
                     })
                 ],
-                autoScroll: true,
+                allowFrom: '.top-bar',
             },
             // values for interact.js transformation
             x: 0,

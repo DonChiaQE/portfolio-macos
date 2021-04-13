@@ -2,9 +2,9 @@
     <div id="app">
         <TopNav />
         <div class="screen" id="screen" style="position: relative;">
-            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left: 50px; top: 50px;" @click.native="focusNoss" @mousedown="focusNoss" @mousemove="focusNoss"/>
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" @mousedown="focusNoss" @mousemove="focusNoss"/>
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" @mousedown="focusPhotos" @mousemove="focusPhotos"/>
-            <stickies v-if="$store.getters.isShownStickies"/>
+            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies"/>
         </div>
         <navbar/>
     </div>
@@ -35,10 +35,17 @@ export default {
         focusPhotos() {
             document.getElementById('photos').style.zIndex = 4;
             document.getElementById('noss').style.zIndex = 0;
+            document.getElementById('stickies').style.zIndex = 0;
         },
         focusNoss() {
             document.getElementById('noss').style.zIndex = 4;
             document.getElementById('photos').style.zIndex = 0;
+            document.getElementById('stickies').style.zIndex = 0;
+        },
+        focusStickies() {
+            document.getElementById('stickies').style.zIndex = 4;
+            document.getElementById('photos').style.zIndex = 0;
+            document.getElementById('noss').style.zIndex = 0;
         },
         onClickLog() {
             alert("Hello! I am an alert box!!");

@@ -13,13 +13,12 @@
             <div class="content">
                 <div class="scroll-container">
                     <div class="header">Photos</div>
-                    
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                        <div class="resizer resizer-l"></div>
-                                        <div class="resizer resizer-t"></div>
-                                        <div class="resizer resizer-r"></div> -->
+                                            <div class="resizer resizer-l"></div>
+                                            <div class="resizer resizer-t"></div>
+                                            <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -299,9 +298,11 @@ export default {
                 modifiers: [
                     interact.modifiers.restrictRect({
                         restriction: "parent",
-                        endOnly: true
+                        endOnly: true,
                     })
                 ],
+                // ignoreFrom: 'textarea',
+                allowFrom: '.top-bar',
             },
             // values for interact.js transformation
             x: 0,
