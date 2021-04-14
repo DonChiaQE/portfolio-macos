@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
     isFullscreenPhotos: false,
     isShownStickies: false,
     isFullscreenStickies: false,
-    activeWindow: 'Finder'
+    activeWindow: 'Finder',
+    notepadData: 'Why are you looking at this?'
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -37,12 +38,13 @@ export const store = new Vuex.Store({
       console.log("zindex upgraded")
       state.zIndex += 1
       document.getElementById(top).style.zIndex = state.zIndex;
-      // document.getElementById(second).style.zIndex = 0;
-      // document.getElementById(last).style.zIndex = 0;
     },
     changeActiveWindow(state, window) {
       state.activeWindow = window;
-    } 
+    },
+    updateNotepad(state, local) {
+      state.notepadData = local;
+    }
   },
   actions: {
     
@@ -71,6 +73,9 @@ export const store = new Vuex.Store({
     },
     activeWindow: state => {
       return state.activeWindow
+    },
+    notepadData: state => {
+      return state.notepadData
     }
   }
 })

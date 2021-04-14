@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <TopNav class="sticky"/>
-        <div class="screen" id="screen" style="position: relative;" >
+        <TopNav class="sticky" />
+        <div class="screen" id="screen" style="position: relative;">
             <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
-            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos"/>
-            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies"/>
+            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
+            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
         </div>
         <navbar/>
     </div>
@@ -46,7 +46,19 @@ export default {
         }
     },
     computed() {
-
+        
+    },
+    mounted() {
+        document.addEventListener("keydown", function(e) {
+            if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey) && e.keyCode == 83) {
+                e.preventDefault();
+                if (this.$store.getters.activeWindow == "Stickies") {
+                    console.log('cmd s up coz stickies on')
+                } else {
+                    console.log('not caught')
+                }
+            }
+        }, false);
     }
 }
 </script>

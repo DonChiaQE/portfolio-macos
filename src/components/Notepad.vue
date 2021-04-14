@@ -5,7 +5,7 @@
         <div id="mydivheader" class="top-bar" v-on:dblclick="$store.commit('toggleFullscreenStickies')">
             <div class="close-button" v-on:click="closeStickies"></div>
         </div>
-        <textarea>Why are you looking at this?</textarea>
+        <textarea v-model="notepadDataLocally" @change="onChangeTextarea"></textarea>
     </div>
     </interact>
 </template>
@@ -72,6 +72,7 @@ export default {
     },
     data: function() {
         return {
+            notepadDataLocally: this.$store.getters.notepadData,
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -107,6 +108,10 @@ export default {
         }
     },
     methods: {
+        onChangeTextarea() {
+            console.log("fired on change")
+            this.$store.commit('updateNotepad', this.notepadDataLocally)
+        },
         dragmove(event) {
             this.x += event.dx;
             this.y += event.dy;

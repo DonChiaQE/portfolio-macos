@@ -2,7 +2,7 @@
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="closeNoss">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeNoss"></div>
                     <div class="button-yellow"></div>
