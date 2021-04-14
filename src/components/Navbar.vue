@@ -1,12 +1,12 @@
 <template>
     <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
           <div class="bar-container">
-              <div class="icon-nossaflex icon" v-on:click="$store.commit('toggleShownNossaflex', true)"></div>
-              <div class="icon-photo icon" v-on:click="$store.commit('toggleShownPhotos', true)"></div>
+              <div class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
+              <div class="icon-photo icon" v-on:click="showPhotos"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
-              <div class="icon-stickies icon" v-on:click="$store.commit('toggleShownStickies', true)"></div>
+              <div class="icon-stickies icon" v-on:click="showStickies"></div>
           </div>
         </div>
 </template>
@@ -121,10 +121,25 @@ export default {
         }
     },
     methods: {
-        toggleShow: function() {
+        toggleShow() {
             this.showHello = false;
             console.log(this.showHello)
             console.log("printed from navbar")
+        },
+        showNossaflex() {
+            this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
+            this.$store.commit('toggleShownNossaflex', true)
+            this.$store.commit('zIndexIncrement', 'noss')
+        },
+        showPhotos() {
+            this.$store.commit('changeActiveWindow', 'Photos')
+            this.$store.commit('toggleShownPhotos', true)
+            this.$store.commit('zIndexIncrement', 'photos')
+        },
+        showStickies() {
+            this.$store.commit('changeActiveWindow', 'Stickies')
+            this.$store.commit('toggleShownStickies', true)
+            this.$store.commit('zIndexIncrement', 'stickies')
         }
     },
     mounted: function() {

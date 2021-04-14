@@ -1,8 +1,8 @@
 <template>
     <div class="navbar-container">
         <div class="nav-left">
-            <span class="iconify nav-text" data-icon="ion-logo-apple" data-inline="false" style=""></span>
-            <div class="nav-text bold">Finder</div>
+            <span class="iconify nav-text" data-icon="ion-logo-apple" data-inline="false"></span>
+            <div class="nav-text bold">{{$store.getters.activeWindow}}</div>
             <div class="nav-text hidden-small">File</div>
             <div class="nav-text hidden-small">Edit</div>
             <div class="nav-text hidden-small">View</div>

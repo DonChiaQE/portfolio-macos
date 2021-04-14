@@ -4,7 +4,7 @@
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="$store.commit('toggleShownPhotos', false)"></div>
+                    <div class="button-red" v-on:click="closePhotos"></div>
                     <div class="button-yellow"></div>
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
                 </div>
@@ -371,6 +371,11 @@ export default {
         },
         onClickLog() {
             alert("Hello! I am an alert box!!");
+        },
+        closePhotos(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleShownPhotos', false)
+            this.$store.commit('changeActiveWindow', 'Finder')
         }
     },
     mounted: function() {

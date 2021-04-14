@@ -11,7 +11,8 @@ export const store = new Vuex.Store({
     isShownPhotos: false,
     isFullscreenPhotos: false,
     isShownStickies: false,
-    isFullscreenStickies: false
+    isFullscreenStickies: false,
+    activeWindow: 'Finder'
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -32,12 +33,16 @@ export const store = new Vuex.Store({
     toggleFullscreenStickies(state) {
       state.isFullscreenStickies = !state.isFullscreenStickies
     },
-    zIndexIncrement(state, top, second, last) {
+    zIndexIncrement(state, top) {
+      console.log("zindex upgraded")
       state.zIndex += 1
       document.getElementById(top).style.zIndex = state.zIndex;
-      document.getElementById(second).style.zIndex = 0;
-      document.getElementById(last).style.zIndex = 0;
-    }
+      // document.getElementById(second).style.zIndex = 0;
+      // document.getElementById(last).style.zIndex = 0;
+    },
+    changeActiveWindow(state, window) {
+      state.activeWindow = window;
+    } 
   },
   actions: {
     
@@ -63,6 +68,9 @@ export const store = new Vuex.Store({
     },
     zIndex: state => {
       return state.zIndex
+    },
+    activeWindow: state => {
+      return state.activeWindow
     }
   }
 })

@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <TopNav />
-        <div class="screen" id="screen" style="position: relative;">
-            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="$store.commit('zIndexIncrement', 'noss', 'stickies', 'photos')"/>
-            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="$store.commit('zIndexIncrement', 'photos', 'stickies', 'noss')"/>
-            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="$store.commit('zIndexIncrement', 'stickies', 'noss', 'photos')"/>
+        <TopNav class="sticky"/>
+        <div class="screen" id="screen" style="position: relative;" >
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
+            <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos"/>
+            <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies"/>
         </div>
         <navbar/>
     </div>
@@ -33,22 +33,16 @@ export default {
     },
     methods: {
         focusPhotos() {
-            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex+1;
-            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex;
-            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex;
+            this.$store.commit('changeActiveWindow', 'Photos')
+            this.$store.commit('zIndexIncrement', 'photos')
         },
         focusNoss() {
-            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex+1;
-            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex;
-            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex;
+            this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
+            this.$store.commit('zIndexIncrement', 'noss')
         },
         focusStickies() {
-            document.getElementById('stickies').style.zIndex = this.$store.getters.zIndex+1;
-            document.getElementById('photos').style.zIndex = this.$store.getters.zIndex;
-            document.getElementById('noss').style.zIndex = this.$store.getters.zIndex;
-        },
-        onClickLog() {
-            alert("Hello! I am an alert box!!");
+            this.$store.commit('changeActiveWindow', 'Stickies')
+            this.$store.commit('zIndexIncrement', 'stickies')
         }
     },
     computed() {
@@ -67,6 +61,10 @@ export default {
     height: 100vh;
     flex-direction: column;
     overflow: hidden;
+}
+
+.sticky {
+    position: static;
 }
 
 .screen {

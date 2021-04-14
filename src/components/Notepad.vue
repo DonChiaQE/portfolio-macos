@@ -1,24 +1,9 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenStickies}">
-        <!-- <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
-                <div class="triple-button">
-                    <div class="button-red" v-on:click="$store.commit('toggleShownPhotos', false)"></div>
-                    <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
-                </div>
-            </div>
-            <div class="bar"></div>
-            <div class="content">
-                <div class="scroll-container">
-                    <div class="header">Photos</div>
-                </div>
-            </div>
-        </div> -->
         <div id="container" :class="{ fullscreen: $store.getters.isFullscreenStickies, close: !$store.getters.isShownStickies}">
         <div id="mydivheader" class="top-bar" v-on:dblclick="$store.commit('toggleFullscreenStickies')">
-            <div class="close-button" v-on:click="$store.commit('toggleShownStickies', false)"></div>
+            <div class="close-button" v-on:click="closeStickies"></div>
         </div>
         <textarea>Why are you looking at this?</textarea>
     </div>
@@ -39,6 +24,7 @@
     background: #fbeb61;
     display: flex;
     align-items: center;
+    cursor: auto;
 }
 .fullscreen {
     width: 100% !important;
@@ -156,6 +142,11 @@ export default {
         },
         onClickLog() {
             alert("Hello! I am an alert box!!");
+        },
+        closeStickies(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleShownStickies', false)
+            this.$store.commit('changeActiveWindow', 'Finder')
         }
     },
     mounted: function() {
