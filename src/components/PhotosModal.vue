@@ -13,29 +13,35 @@
             <div class="content">
                 <div class="scroll-container">
                     <div class="header">Photos</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
-                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
-                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
+                        <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 60" v-bind:key="i" style="padding: 0;margin:0;">
+                            <img :src="require(`../assets/Photos/image-${i}.webp`)">
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                            <div class="resizer resizer-l"></div>
-                                            <div class="resizer resizer-t"></div>
-                                            <div class="resizer resizer-r"></div> -->
+                                                                                <div class="resizer resizer-l"></div>
+                                                                                <div class="resizer resizer-t"></div>
+                                                                                <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
 
 <style scoped>
+.square-container {
+    display: grid;
+    gap: 10px;
+    padding-top: 10px;
+    margin: 0 !important;
+}
+
+.square img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 .resize-drag {
     box-sizing: border-box;
     background: none;
@@ -59,9 +65,9 @@
 }
 
 .about-me {
-    min-height: 300px;
+    min-height: 500px;
     min-width: 350px;
-    height: 300px;
+    height: 500px;
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
@@ -77,6 +83,7 @@
 .scroll-container {
     overflow: scroll;
     padding-top: 20px;
+    padding-bottom: 15vh;
 }
 
 @media only screen and (max-width: 600px) {
@@ -86,8 +93,31 @@
         max-width: 100vw;
     }
     .scroll-container {
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+        padding-left: 5vw !important;
+        padding-right: 5vw !important;
+    }
+    .expandedScrollContainer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    .gridFullscreen {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template: repeat(auto-fill, minmax(128px, 1fr));
+    }
+    .squareFullscreen {
+        height: 40vw;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .gridFullscreen {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template: repeat(auto-fill, minmax(128px, 1fr));
+    }
+    .squareFullscreen {
+        height: 30vw;
+        width: auto;
     }
 }
 
@@ -217,6 +247,11 @@
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
+}
+
+.expandedScrollContainer {
+    padding-left: 25vw;
+    padding-right: 25vw;
 }
 
 .paragraph {

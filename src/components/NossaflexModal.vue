@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
                 <div class="triple-button">
@@ -11,7 +11,7 @@
             </div>
             <div class="bar"></div>
             <div class="content">
-                <div class="scroll-container">
+                <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenNossaflex }">
                     <div class="header">NOSSAFLEX</div>
                     <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
                         tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
@@ -28,9 +28,9 @@
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                            <div class="resizer resizer-l"></div>
-                            <div class="resizer resizer-t"></div>
-                            <div class="resizer resizer-r"></div> -->
+                                <div class="resizer resizer-l"></div>
+                                <div class="resizer resizer-t"></div>
+                                <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -80,8 +80,12 @@
         max-width: 100vw;
     }
     .scroll-container {
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
+    }
+    .expandedScrollContainer {
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
     }
 }
 
@@ -213,6 +217,11 @@ img {
     padding-top: 20px;
 }
 
+.expandedScrollContainer {
+    padding-left: 25vw ;
+    padding-right: 25vw ;
+}
+
 .paragraph {
     font-weight: 100;
     font-size: 14px;
@@ -295,6 +304,10 @@ export default {
     },
     data: function() {
         return {
+            resizeOption: {
+                edges: { top: true, left: true, bottom: true, right: true },
+                
+            },
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -303,7 +316,6 @@ export default {
             },
             dragOption: {
                 modifiers: [
-
                     interact.modifiers.restrictRect({
                         restriction: "parent",
                         endOnly: true
@@ -311,6 +323,7 @@ export default {
                 ],
                 allowFrom: '.top-bar',
             },
+            
             // values for interact.js transformation
             x: 0,
             y: 0,
