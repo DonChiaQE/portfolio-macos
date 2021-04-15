@@ -15,7 +15,7 @@
                     <div class="header">Photos</div>
                     <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
                         <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 43" v-bind:key="i" style="padding: 0;margin:0;">
-                            <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosJPG/image-${i}.jpg`)"/>
+                            <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosWebpExpanded/image-${i}.webp`)"/>
                         </div>
                     </div>
                 </div>
