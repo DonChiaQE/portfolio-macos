@@ -14,8 +14,8 @@
                 <div class="scroll-container">
                     <div class="header">Photos</div>
                     <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
-                        <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 60" v-bind:key="i" style="padding: 0;margin:0;">
-                            <img :src="require(`../assets/Photos/image-${i}.webp`)">
+                        <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 43" v-bind:key="i" style="padding: 0;margin:0;">
+                            <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosJPG/image-${i}.jpg`)"/>
                         </div>
                     </div>
                 </div>
