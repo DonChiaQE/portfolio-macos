@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <TopNav class="sticky" />
+        <TopNav class="fixed" />
         <div class="screen" id="screen" style="position: relative;">
             <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
@@ -76,7 +76,7 @@ export default {
 }
 
 .sticky {
-    position: static;
+    position: fixed;
 }
 
 .screen {
