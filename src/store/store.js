@@ -25,7 +25,7 @@ export const store = new Vuex.Store({
     // Mail window
     isShownMail: false,
     isFullscreenMail: false,
-    mailContent: 'hhh',
+    mailContent: '',
     mailSender: '',
     mailSubject: 'New Message'
   },
@@ -76,6 +76,9 @@ export const store = new Vuex.Store({
     },
     updateMailSubject(state, local) {
       state.mailSubject = local
+    },
+    updateMailContent(state, local) {
+      state.mailContent = local
     },
     updateMailSender(state, local) {
       state.mailSender = local

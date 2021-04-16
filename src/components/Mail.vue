@@ -1,11 +1,12 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenMail}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
+        <form @submit.prevent="sendEmail" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeMail"></div>
-                    <div class="button-yellow"></div>
+                    <!-- <div class="button-yellow" v-on:click="sendEmail"></div> -->
+                    <input class="button-yellow" type="submit" value="Send"> <!--fix this-->
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenMail')"></div>
                 </div>
             </div>
@@ -15,22 +16,22 @@
                     <div class="header">{{$store.getters.mailSubject}}</div>
                     <div class="subject-container" style="margin-top: 5px;">
                         <p>Subject:</p>
-                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text"/>
+                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true"/>
                     </div>
                     <hr>
                     <div class="from-container">
                         <p>From:</p>
-                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="text"/>
+                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true"/>
                     </div>
                     <hr>
-                    <textarea></textarea>
+                    <textarea v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                                                                <div class="resizer resizer-l"></div>
-                                                                                <div class="resizer resizer-t"></div>
-                                                                                <div class="resizer resizer-r"></div> -->
-        </div>
+                                                                                            <div class="resizer resizer-l"></div>
+                                                                                            <div class="resizer resizer-t"></div>
+                                                                                            <div class="resizer resizer-r"></div> -->
+        </form>
     </interact>
 </template>
 
@@ -48,7 +49,7 @@ p {
 }
 
 hr {
-    background-color: rgb(155,155,155, 0.2);
+    background-color: rgb(155, 155, 155, 0.2);
     width: 100%;
 }
 
@@ -127,7 +128,6 @@ textarea {
         width: 90vw;
         max-width: 100vw;
     }
-    
     .expandedScrollContainer {
         padding-left: 5vw;
         padding-right: 5vw;
@@ -341,6 +341,7 @@ textarea {
 
 <script>
 import interact from "interactjs";
+import emailjs from 'emailjs-com';
 export default {
     props: {
         // shownProp: Boolean
@@ -349,6 +350,7 @@ export default {
         return {
             mailSubject: this.checkMail(),
             mailSender: this.$store.getters.mailSender,
+            mailContent: this.$store.getters.mailContent,
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -384,6 +386,27 @@ export default {
         }
     },
     methods: {
+        sendEmail() {
+            try {
+                var templateParams = {
+                    user: this.$store.getters.mailSender,
+                    message: this.$store.getters.mailContent,
+                    subject: this.$store.getters.mailSubject
+                };
+                emailjs.send('service_wverxga', 'template_6mc4gx7', templateParams, 'user_DhnG69UM2hCwPM6iyeQzP')
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            } catch (error) {
+                console.log({ error })
+            }
+            // Reset form field
+            this.mailSender = ""
+            this.mailContent = ""
+            this.mailSubject = ""
+        },
         checkMail() {
             if (this.$store.getters.mailSubject == 'New Message') {
                 return ""
@@ -403,6 +426,13 @@ export default {
                 this.$store.commit('updateMailSender', '')
             } else {
                 this.$store.commit('updateMailSender', this.mailSender)
+            }
+        },
+        onChangeMailContent() {
+            if (this.mailContent.replace(/\s/g, "") == "") {
+                this.$store.commit('updateMailContent', '')
+            } else {
+                this.$store.commit('updateMailContent', this.mailContent)
             }
         },
         dragmove(event) {
