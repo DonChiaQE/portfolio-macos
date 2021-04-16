@@ -77,7 +77,7 @@ export default {
 
 <style>
 body {
-    touch-action: pan-y;
+    touch-action: none;
 }
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
