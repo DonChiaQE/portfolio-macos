@@ -284,7 +284,7 @@ export default {
     },
     data: function() {
         return {
-            mailSubject: '',
+            mailSubject: this.checkMail(),
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -320,6 +320,13 @@ export default {
         }
     },
     methods: {
+        checkMail() {
+            if (this.$store.getters.mailSubject == 'New Message') {
+                return ""
+            } else {
+                return this.$store.getters.mailSubject
+            }
+        },
         onChangeMailSubject() {
             if (this.mailSubject.replace(/\s/g, "") == "") {
                 this.$store.commit('updateMailSubject', 'New Message')
