@@ -66,25 +66,24 @@ export default {
                 }
             }
         }, false);
+        window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
     }
 }
 </script>
 
 <style>
-html {
-  height: -webkit-fill-available;
-}
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     flex-direction: column;
     overflow: hidden;
 }
@@ -94,7 +93,8 @@ body {
 }
 
 .screen {
-    height: 100vh;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }
 

@@ -12,8 +12,8 @@
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container">
-                    <div class="header">Mail</div>
-
+                    <div class="header">{{$store.getters.mailSubject}}</div>
+                    <input v-model="mailSubject" v-on:input="onChangeMailSubject" type="text"/>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -294,6 +294,7 @@ export default {
     },
     data: function() {
         return {
+            mailSubject: '',
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -329,6 +330,13 @@ export default {
         }
     },
     methods: {
+        onChangeMailSubject() {
+            if (this.mailSubject.replace(/\s/g, "") == "") {
+                this.$store.commit('updateMailSubject', 'New Message')
+            } else {
+                this.$store.commit('updateMailSubject', this.mailSubject)
+            }
+        },
         dragmove(event) {
             this.x += event.dx;
             this.y += event.dy;

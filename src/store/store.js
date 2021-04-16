@@ -22,7 +22,8 @@ export const store = new Vuex.Store({
     // Mail window
     isShownMail: false,
     isFullscreenMail: false,
-    mailContent: 'hhh'
+    mailContent: 'hhh',
+    mailSubject: 'New Message'
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -62,6 +63,9 @@ export const store = new Vuex.Store({
     },
     updateMail(state, local) {
       state.isShownMail = local
+    },
+    updateMailSubject(state, local) {
+      state.mailSubject = local
     }
   },
   actions: {
@@ -104,5 +108,8 @@ export const store = new Vuex.Store({
     mailContent: state => {
       return state.mailContent
     },
+    mailSubject: state => {
+      return state.mailSubject
+    }
   }
 })
