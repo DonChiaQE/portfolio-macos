@@ -37,16 +37,6 @@
     cursor: auto !important;
 }
 
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    touch-action: none;
-    background: green;
-}
-
 .about-me {
     min-height: 500px;
     min-width: 350px;
@@ -87,7 +77,7 @@
 
 .fullscreen {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;

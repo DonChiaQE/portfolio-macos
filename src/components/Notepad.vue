@@ -28,7 +28,7 @@
 }
 .fullscreen {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;
@@ -109,7 +109,6 @@ export default {
     },
     methods: {
         onChangeTextarea() {
-            console.log("fired on change")
             this.$store.commit('updateNotepad', this.notepadDataLocally)
         },
         dragmove(event) {
