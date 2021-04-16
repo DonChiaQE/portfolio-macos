@@ -3,7 +3,7 @@
           <div class="bar-container">
               <div class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
               <div class="icon-photo icon" v-on:click="showPhotos"></div>
-              <div class="icon-wip icon"></div>
+              <div class="icon-mail icon" v-on:click="showMail"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-stickies icon" v-on:click="showStickies"></div>
@@ -69,7 +69,7 @@
 }
 
 .icon-wip {
-    background-image: url('../assets/WIP.webp');
+    background-image: url('../assets/Icons/WIP.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -80,21 +80,28 @@
 }
 
 .icon-nossaflex {
-    background-image: url('../assets/NossaflexLight.webp');
+    background-image: url('../assets/Icons/NossaflexLight.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-photo {
-    background-image: url('../assets/Photo.webp');
+    background-image: url('../assets/Icons/Photo.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-mail {
+    background-image: url('../assets/Icons/Mail.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-stickies {
-    background-image: url('../assets/Stickies.webp');
+    background-image: url('../assets/Icons/Stickies.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -102,7 +109,7 @@
 
 @media (prefers-color-scheme: dark) {
     .icon-nossaflex {
-    background-image: url('../assets/NossaflexDark.webp');
+    background-image: url('../assets/Icons/NossaflexDark.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -140,6 +147,11 @@ export default {
             this.$store.commit('changeActiveWindow', 'Stickies')
             this.$store.commit('toggleShownStickies', true)
             this.$store.commit('zIndexIncrement', 'stickies')
+        },
+        showMail() {
+            this.$store.commit('changeActiveWindow', 'Mail')
+            this.$store.commit('toggleShownMail', true)
+            this.$store.commit('zIndexIncrement', 'mail')
         }
     },
     mounted: function() {

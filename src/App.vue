@@ -5,6 +5,7 @@
             <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
             <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
+            <mail id="mail" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
         </div>
         <navbar/>
     </div>
@@ -16,6 +17,7 @@ import Navbar from './components/Navbar'
 import TopNav from './components/TopNav'
 import PhotosModal from './components/PhotosModal.vue'
 import Stickies from './components/Notepad.vue'
+import Mail from './components/Mail.vue'
 
 export default {
     name: 'App',
@@ -29,7 +31,8 @@ export default {
         PhotosModal,
         Navbar,
         TopNav,
-        Stickies
+        Stickies,
+        Mail
     },
     methods: {
         focusPhotos() {
@@ -43,6 +46,10 @@ export default {
         focusStickies() {
             this.$store.commit('changeActiveWindow', 'Stickies')
             this.$store.commit('zIndexIncrement', 'stickies')
+        },
+        focusMail() {
+            this.$store.commit('changeActiveWindow', 'Mail')
+            this.$store.commit('zIndexIncrement', 'mail')
         }
     },
     computed() {
@@ -64,6 +71,13 @@ export default {
 </script>
 
 <style>
+html {
+  height: -webkit-fill-available;
+}
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -76,7 +90,7 @@ export default {
 }
 
 .sticky {
-    position: fixed;
+    position: static;
 }
 
 .screen {

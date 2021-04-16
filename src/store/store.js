@@ -5,15 +5,24 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
+    // Active window 
+    activeWindow: 'Finder',
+    // Z-index counter
     zIndex: 2,
+    // Nossaflex window
     isShownNossaflex: true,
     isFullscreenNossaflex: false,
+    // Photo window
     isShownPhotos: false,
     isFullscreenPhotos: false,
+    // Stickies window
     isShownStickies: false,
     isFullscreenStickies: false,
-    activeWindow: 'Finder',
-    notepadData: 'Why are you looking at this?'
+    notepadData: 'Why are you looking at this?',
+    // Mail window
+    isShownMail: false,
+    isFullscreenMail: false,
+    mailContent: 'hhh'
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -37,13 +46,22 @@ export const store = new Vuex.Store({
     zIndexIncrement(state, top) {
       console.log("zindex upgraded")
       state.zIndex += 1
-      document.getElementById(top).style.zIndex = state.zIndex;
+      document.getElementById(top).style.zIndex = state.zIndex
     },
     changeActiveWindow(state, window) {
-      state.activeWindow = window;
+      state.activeWindow = window
     },
     updateNotepad(state, local) {
-      state.notepadData = local;
+      state.notepadData = local
+    },
+    toggleShownMail(state, shownBool) {
+      state.isShownMail = shownBool
+    },
+    toggleFullscreenMail(state) {
+      state.isFullscreenMail = !state.isFullscreenMail
+    },
+    updateMail(state, local) {
+      state.isShownMail = local
     }
   },
   actions: {
@@ -76,6 +94,15 @@ export const store = new Vuex.Store({
     },
     notepadData: state => {
       return state.notepadData
-    }
+    },
+    isShownMail: state => {
+      return state.isShownMail
+    },
+    isFullscreenMail: state => {
+      return state.isFullscreenMail
+    },
+    mailContent: state => {
+      return state.mailContent
+    },
   }
 })

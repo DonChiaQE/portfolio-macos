@@ -1,18 +1,18 @@
 /* eslint-disable */
 <template>
-    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenPhotos}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenMail}">
+        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="closePhotos"></div>
+                    <div class="button-red" v-on:click="closeMail"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenMail')"></div>
                 </div>
             </div>
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container">
-                    <div class="header">Photos</div>
+                    <div class="header">Mail</div>
 
                 </div>
             </div>
@@ -365,9 +365,9 @@ export default {
         onClickLog() {
             alert("Hello! I am an alert box!!");
         },
-        closePhotos(e) {
+        closeMail(e) {
             e.stopPropagation()
-            this.$store.commit('toggleShownPhotos', false)
+            this.$store.commit('toggleShownMail', false)
             this.$store.commit('changeActiveWindow', 'Finder')
         }
     },
