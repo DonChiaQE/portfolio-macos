@@ -10,11 +10,14 @@ export const store = new Vuex.Store({
     // Z-index counter
     zIndex: 2,
     // Nossaflex window
-    isShownNossaflex: true,
+    isShownNossaflex: false,
     isFullscreenNossaflex: false,
     // Photo window
     isShownPhotos: false,
     isFullscreenPhotos: false,
+    // Bio window
+    isShownBio: false,
+    isFullscreenBio: false,
     // Stickies window
     isShownStickies: false,
     isFullscreenStickies: false,
@@ -23,6 +26,7 @@ export const store = new Vuex.Store({
     isShownMail: false,
     isFullscreenMail: false,
     mailContent: 'hhh',
+    mailSender: '',
     mailSubject: 'New Message'
   },
   mutations: {
@@ -43,6 +47,12 @@ export const store = new Vuex.Store({
     },
     toggleFullscreenStickies(state) {
       state.isFullscreenStickies = !state.isFullscreenStickies
+    },
+    toggleShownBio(state, shownBool) {
+      state.isShownBio = shownBool
+    },
+    toggleFullscreenBio(state) {
+      state.isFullscreenBio = !state.isFullscreenBio
     },
     zIndexIncrement(state, top) {
       console.log("zindex upgraded")
@@ -66,6 +76,9 @@ export const store = new Vuex.Store({
     },
     updateMailSubject(state, local) {
       state.mailSubject = local
+    },
+    updateMailSender(state, local) {
+      state.mailSender = local
     }
   },
   actions: {
@@ -90,6 +103,12 @@ export const store = new Vuex.Store({
     isFullscreenStickies: state => {
       return state.isFullscreenStickies
     },
+    isShownBio: state => {
+      return state.isShownBio
+    },
+    isFullscreenBio: state => {
+      return state.isFullscreenBio
+    },
     zIndex: state => {
       return state.zIndex
     },
@@ -110,6 +129,9 @@ export const store = new Vuex.Store({
     },
     mailSubject: state => {
       return state.mailSubject
+    },
+    mailSender: state => {
+      return state.mailSender
     }
   }
 })

@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
           <div class="bar-container">
+              <div class="icon-bio icon" v-on:click="showBio"></div>
               <div class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
               <div class="icon-photo icon" v-on:click="showPhotos"></div>
               <div class="icon-mail icon" v-on:click="showMail"></div>
@@ -31,17 +32,19 @@
 @media only screen and (max-width: 600px) { 
     .bar-container {
         width: 100vw !important;
-        margin-left: 20px;
-        margin-right: 20px;
+        border-radius: 4vw;
+        margin-left: 4vw;
+        margin-right: 4vw;
         height: 10vw !important;
-        padding-top: 4vw;
-        padding-bottom: 4vw;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
     }
     .icon {
-        width: 10vw !important;
-        height: 10vw !important;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+        width: 8vw !important;
+        height: 8vw !important;
+        margin-left: 1vw !important;
+        margin-right: 1vw !important;
+        border-radius: 2vw !important;
     }
 }
 
@@ -107,6 +110,13 @@
     background-position: center;
 }
 
+.icon-bio {
+    background-image: url('../assets/Icons/Bio.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 @media (prefers-color-scheme: dark) {
     .icon-nossaflex {
     background-image: url('../assets/Icons/NossaflexDark.webp');
@@ -130,8 +140,6 @@ export default {
     methods: {
         toggleShow() {
             this.showHello = false;
-            console.log(this.showHello)
-            console.log("printed from navbar")
         },
         showNossaflex() {
             this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
@@ -152,6 +160,11 @@ export default {
             this.$store.commit('changeActiveWindow', 'Mail')
             this.$store.commit('toggleShownMail', true)
             this.$store.commit('zIndexIncrement', 'mail')
+        },
+        showBio() {
+            this.$store.commit('changeActiveWindow', 'Bio')
+            this.$store.commit('toggleShownBio', true)
+            this.$store.commit('zIndexIncrement', 'bio')
         }
     },
     mounted: function() {

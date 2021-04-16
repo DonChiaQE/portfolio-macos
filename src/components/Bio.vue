@@ -1,59 +1,41 @@
 /* eslint-disable */
 <template>
-    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenPhotos}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenBio}">
+        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenBio, close: !$store.getters.isShownBio}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenBio')">
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="closePhotos"></div>
+                    <div class="button-red" v-on:click="closeBio"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
                 </div>
             </div>
             <div class="bar"></div>
             <div class="content">
-                <div class="scroll-container">
-                    <div class="header">Photos</div>
-                    <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
-                        <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 43" v-bind:key="i" style="padding: 0;margin:0;">
-                            <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosWebpExpanded/image-${i}.webp`)"/>
-                        </div>
-                    </div>
+                <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenBio }">
+                    <div class="header">Hello There </div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
+                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
+                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
+                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
+                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                                                                <div class="resizer resizer-l"></div>
-                                                                                <div class="resizer resizer-t"></div>
-                                                                                <div class="resizer resizer-r"></div> -->
+                                <div class="resizer resizer-l"></div>
+                                <div class="resizer resizer-t"></div>
+                                <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
 
 <style scoped>
-.square-container {
-    display: grid;
-    gap: 2px;
-    padding-top: 10px;
-    margin: 0 !important;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template: repeat(auto-fill, minmax(128px, 1fr));
-}
-
-.square img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.square {
-    height: 25vh;
-}
-
-img:hover {
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .resize-drag {
     box-sizing: border-box;
     background: none;
@@ -67,9 +49,9 @@ img:hover {
 }
 
 .about-me {
-    min-height: 500px;
+    min-height: 300px;
     min-width: 350px;
-    height: 500px;
+    height: 300px;
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
@@ -82,12 +64,6 @@ img:hover {
     align-items: flex-end;
 }
 
-.scroll-container {
-    overflow: scroll;
-    padding-top: 20px;
-    padding-bottom: 15vh;
-}
-
 @media only screen and (max-width: 600px) {
     .about-me {
         min-width: 50vw;
@@ -95,31 +71,12 @@ img:hover {
         max-width: 100vw;
     }
     .scroll-container {
-        padding-left: 5vw !important;
-        padding-right: 5vw !important;
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
     }
     .expandedScrollContainer {
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
-    .gridFullscreen {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template: repeat(auto-fill, minmax(128px, 1fr));
-    }
-    .squareFullscreen {
-        height: 20vw;
-        width: auto;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .gridFullscreen {
-        grid-template-columns: repeat(6, 1fr);
-        grid-template: repeat(auto-fill, minmax(128px, 1fr));
-    }
-    .squareFullscreen {
-        height: 15vw;
-        width: auto;
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
     }
 }
 
@@ -223,11 +180,11 @@ img:hover {
     align-items: center;
 }
 
-/* img {
+img {
     height: 140px;
     width: 140px;
     border-radius: 50%;
-} */
+}
 
 .content {
     display: flex;
@@ -252,8 +209,8 @@ img:hover {
 }
 
 .expandedScrollContainer {
-    padding-left: 25vw;
-    padding-right: 25vw;
+    padding-left: 25vw ;
+    padding-right: 25vw ;
 }
 
 .paragraph {
@@ -338,25 +295,26 @@ export default {
     },
     data: function() {
         return {
+            resizeOption: {
+                edges: { top: true, left: true, bottom: true, right: true },
+                
+            },
             positions: {
                 clientX: undefined,
                 clientY: undefined,
                 movementX: 0,
                 movementY: 0
             },
-            resizeOption: {
-                edges: { left: true, right: true, bottom: true, top: true }
-            },
             dragOption: {
                 modifiers: [
                     interact.modifiers.restrictRect({
                         restriction: "parent",
-                        endOnly: true,
+                        endOnly: true
                     })
                 ],
-                // ignoreFrom: 'textarea',
                 allowFrom: '.top-bar',
             },
+            
             // values for interact.js transformation
             x: 0,
             y: 0,
@@ -406,12 +364,9 @@ export default {
             document.onmouseup = null
             document.onmousemove = null
         },
-        onClickLog() {
-            alert("Hello! I am an alert box!!");
-        },
-        closePhotos(e) {
+        closeBio(e) {
             e.stopPropagation()
-            this.$store.commit('toggleShownPhotos', false)
+            this.$store.commit('toggleShownBio', false)
             this.$store.commit('changeActiveWindow', 'Finder')
         }
     },

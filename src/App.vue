@@ -6,6 +6,7 @@
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
             <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
             <mail id="mail" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
+            <bio id="bio" v-if="$store.getters.isShownBio" style=" position: absolute;" @click.native="focusBio" />
         </div>
         <navbar/>
     </div>
@@ -18,6 +19,7 @@ import TopNav from './components/TopNav'
 import PhotosModal from './components/PhotosModal.vue'
 import Stickies from './components/Notepad.vue'
 import Mail from './components/Mail.vue'
+import Bio from './components/Bio.vue'
 
 export default {
     name: 'App',
@@ -32,7 +34,8 @@ export default {
         Navbar,
         TopNav,
         Stickies,
-        Mail
+        Mail,
+        Bio
     },
     methods: {
         focusPhotos() {
@@ -50,6 +53,10 @@ export default {
         focusMail() {
             this.$store.commit('changeActiveWindow', 'Mail')
             this.$store.commit('zIndexIncrement', 'mail')
+        },
+        focusBio() {
+            this.$store.commit('changeActiveWindow', 'Bio')
+            this.$store.commit('zIndexIncrement', 'bio')
         }
     },
     computed() {
@@ -76,9 +83,6 @@ export default {
 </script>
 
 <style>
-body {
-    touch-action: none;
-}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -10,10 +10,20 @@
                 </div>
             </div>
             <div class="bar"></div>
-            <div class="content">
+            <div class="content" style="padding-left: 50px; height: 100%;">
                 <div class="scroll-container">
                     <div class="header">{{$store.getters.mailSubject}}</div>
-                    <input v-model="mailSubject" v-on:input="onChangeMailSubject" type="text"/>
+                    <div class="subject-container" style="margin-top: 5px;">
+                        <p>Subject:</p>
+                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text"/>
+                    </div>
+                    <hr>
+                    <div class="from-container">
+                        <p>From:</p>
+                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="text"/>
+                    </div>
+                    <hr>
+                    <textarea></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -25,6 +35,56 @@
 </template>
 
 <style scoped>
+.subject {
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+p {
+    color: rgb(155, 155, 155);
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+hr {
+    background-color: rgb(155,155,155, 0.2);
+    width: 100%;
+}
+
+.subject-container {
+    display: flex;
+    height: 20px;
+    align-items: center;
+}
+
+.from-container {
+    display: flex;
+    height: 20px;
+    align-items: center;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    caret-color: black;
+    color: black;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
 .resize-drag {
     box-sizing: border-box;
     background: none;
@@ -56,7 +116,9 @@
 .scroll-container {
     overflow: scroll;
     padding-top: 20px;
-    padding-bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -65,10 +127,7 @@
         width: 90vw;
         max-width: 100vw;
     }
-    .scroll-container {
-        padding-left: 5vw !important;
-        padding-right: 5vw !important;
-    }
+    
     .expandedScrollContainer {
         padding-left: 5vw;
         padding-right: 5vw;
@@ -181,7 +240,6 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding-bottom: 30px;
 }
 
 .header {
@@ -192,9 +250,8 @@
 
 .scroll-container {
     overflow: scroll;
-    padding-left: 50px;
-    padding-right: 50px;
     padding-top: 20px;
+    width: 100%;
 }
 
 .expandedScrollContainer {
@@ -273,6 +330,12 @@
     .paragraph {
         color: white;
     }
+    input {
+        color: white;
+    }
+    textarea {
+        color: white;
+    }
 }
 </style>
 
@@ -285,6 +348,7 @@ export default {
     data: function() {
         return {
             mailSubject: this.checkMail(),
+            mailSender: this.$store.getters.mailSender,
             positions: {
                 clientX: undefined,
                 clientY: undefined,
@@ -332,6 +396,13 @@ export default {
                 this.$store.commit('updateMailSubject', 'New Message')
             } else {
                 this.$store.commit('updateMailSubject', this.mailSubject)
+            }
+        },
+        onChangeMailSender() {
+            if (this.mailSender.replace(/\s/g, "") == "") {
+                this.$store.commit('updateMailSender', '')
+            } else {
+                this.$store.commit('updateMailSender', this.mailSender)
             }
         },
         dragmove(event) {
