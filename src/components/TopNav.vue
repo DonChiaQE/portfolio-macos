@@ -12,21 +12,33 @@
         </div>
         <div class="nav-right">
             <div class="date text-right">
-                <span>{{moment(date).format('ddd DD MMMM')}}</span>
+                <span>{{this.date}}</span>
             </div>
             <div class="time text-right">
                 <!-- 11:22PM -->
-                <span>{{moment(date).format('hh:mm A')}}</span>
+                <span>{{this.time}}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
+import moment from 'moment'
 export default {
-
-
+    data() {
+        return {
+            time: '',
+            date: ''
+        }
+    },
+    beforeMount() {
+        setInterval(() => {
+            this.time = moment().format('hh:mm A')
+        }, 1000)
+        setInterval(() => {
+            this.date = moment().format('ddd DD MMMM')
+        }, 1000)
+    }
 }
 </script>
 

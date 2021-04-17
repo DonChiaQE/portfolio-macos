@@ -79,11 +79,25 @@ export default {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
+
+        function resetHeight() {
+            // reset the body height to that of the inner browser
+            document.body.style.height = window.innerHeight + "px";
+            document.html.style.height = window.innerHeight + "px";
+        }
+        // reset the height whenever the window's resized
+        window.addEventListener("resize", resetHeight);
+        // called to initially set the height.
+        resetHeight();
     }
 }
 </script>
 
 <style>
+html {
+    overflow: hidden;
+}
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

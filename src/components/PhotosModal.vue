@@ -125,7 +125,7 @@ img:hover {
 
 .fullscreen {
     width: 100% !important;
-    height: 100% !important;
+    height: var(--fullscreen) !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;
@@ -222,12 +222,6 @@ img:hover {
     justify-content: center;
     align-items: center;
 }
-
-/* img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-} */
 
 .content {
     display: flex;
@@ -369,6 +363,7 @@ export default {
                 height: `${this.h}px`,
                 width: `${this.w}px`,
                 transform: `translate(${this.x}px, ${this.y}px)`,
+                '--fullscreen': window.innerHeight - 30 + "px"
             };
         }
     },
