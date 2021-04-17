@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenMail}">
-        <form @submit.prevent="sendEmail" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRBqHB0Z6GOjwE3jniX8-fHfJK-WcyzNTmkPFg4fg2SYPwpA/formResponse" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeMail"></div>
@@ -19,15 +19,15 @@
                     <div class="header">{{$store.getters.mailSubject}}</div>
                     <div class="subject-container" style="margin-top: 5px;">
                         <p>Subject:</p>
-                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
+                        <input name="entry.609946071" class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
                     </div>
                     <hr>
                     <div class="from-container">
                         <p>From:</p>
-                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
+                        <input name="entry.367924729" class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
                     </div>
                     <hr>
-                    <textarea v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
+                    <textarea name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
