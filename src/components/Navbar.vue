@@ -144,27 +144,38 @@ export default {
         showNossaflex() {
             this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
             this.$store.commit('toggleShownNossaflex', true)
-            this.$store.commit('zIndexIncrement', 'noss')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'noss')
+            }, 1);
+            
         },
         showPhotos() {
             this.$store.commit('changeActiveWindow', 'Photos')
             this.$store.commit('toggleShownPhotos', true)
-            this.$store.commit('zIndexIncrement', 'photos')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'photos')
+            }, 1);
         },
         showStickies() {
             this.$store.commit('changeActiveWindow', 'Stickies')
             this.$store.commit('toggleShownStickies', true)
-            this.$store.commit('zIndexIncrement', 'stickies')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'stickies')
+            }, 1);
         },
         showMail() {
             this.$store.commit('changeActiveWindow', 'Mail')
             this.$store.commit('toggleShownMail', true)
-            this.$store.commit('zIndexIncrement', 'mail')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'mail')
+            }, 1);
         },
         showBio() {
             this.$store.commit('changeActiveWindow', 'Bio')
             this.$store.commit('toggleShownBio', true)
-            this.$store.commit('zIndexIncrement', 'bio')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'bio')
+            }, 1);
         }
     },
     mounted: function() {
