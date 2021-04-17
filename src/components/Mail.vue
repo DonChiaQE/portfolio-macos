@@ -158,6 +158,9 @@ textarea {
         padding-left: 5vw;
         padding-right: 5vw;
     }
+    .content {
+        padding-left: 25px !important;
+    }
 }
 
 .fullscreen {

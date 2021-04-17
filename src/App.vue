@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <TopNav class="fixed" />
+        <TopNav />
         <div class="screen" id="screen" style="position: relative;">
             <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
@@ -60,7 +60,7 @@ export default {
         }
     },
     computed() {
-        
+
     },
     mounted() {
         document.addEventListener("keydown", function(e) {
@@ -73,6 +73,7 @@ export default {
                 }
             }
         }, false);
+        // We listen to the resize event
         window.addEventListener('resize', () => {
             // We execute the same script as before
             let vh = window.innerHeight * 0.01;
@@ -89,18 +90,12 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     width: 100%;
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
     flex-direction: column;
     overflow: hidden;
 }
 
-.sticky {
-    position: static;
-}
-
 .screen {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }

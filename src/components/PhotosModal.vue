@@ -85,7 +85,7 @@ img:hover {
 .scroll-container {
     overflow: scroll;
     padding-top: 20px;
-    padding-bottom: 15vh;
+    padding-bottom: 90px;
 }
 
 @media only screen and (max-width: 600px) {
