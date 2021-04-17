@@ -47,6 +47,7 @@ export default {
     display: flex;
     width: auto;
     margin-left: 15px;
+    align-items: center;
 }
 
 .iconify {
@@ -75,7 +76,7 @@ export default {
 }
 
 .bold {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {
