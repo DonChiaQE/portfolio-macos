@@ -15,7 +15,7 @@
                 </button>
             </div>
             <div class="bar"></div>
-            <div class="content" style="padding-left: 50px; height: 100%;">
+            <div class="content">
                 <div class="scroll-container">
                     <div class="header">{{$store.getters.mailSubject}}</div>
                     <div class="subject-container" style="margin-top: 5px;">
@@ -128,7 +128,7 @@ textarea {
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
-    overflow: none;
+    overflow: hidden;
     border: 1px solid #dadada;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
     /* transition: all 0.5s ease; */
@@ -138,12 +138,12 @@ textarea {
 }
 
 .scroll-container {
-    overflow: hidden;
+    overflow: none;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: scroll;
+    overflow: none;
     padding-top: 20px;
     width: 100%;
 }
@@ -269,6 +269,7 @@ textarea {
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
+    padding-left: 50px; 
 }
 
 .header {
