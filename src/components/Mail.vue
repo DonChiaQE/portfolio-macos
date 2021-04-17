@@ -28,7 +28,7 @@
                         <input name="entry.367924729" class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
                     </div>
                     <hr>
-                    <textarea :class="{ textareaFullscreen: $store.getters.isFullscreenMail}" name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent"></textarea>
+                    <textarea :class="{ textareaFullscreen: $store.getters.isFullscreenMail}" name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -421,6 +421,7 @@ export default {
                 this.$store.commit('updateMailSubject', '')
                 this.$store.commit('updateMailContent', '')
             }, 500);
+            alert('Form successfully sent!')
         },
         checkMail() {
             if (this.$store.getters.mailSubject == 'New Message') {
