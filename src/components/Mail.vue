@@ -1,17 +1,18 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenMail}">
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRBqHB0Z6GOjwE3jniX8-fHfJK-WcyzNTmkPFg4fg2SYPwpA/formResponse" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}">
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(this.submitted)  {window.location='https://bigsurmacos.netlify.app/';}"></iframe>
+        <form v-on:submit="sendEmail" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRBqHB0Z6GOjwE3jniX8-fHfJK-WcyzNTmkPFg4fg2SYPwpA/formResponse" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}" target="hidden_iframe">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeMail"></div>
-                    <div class="button-yellow" v-on:click="sendEmail"></div>
+                    <div class="button-yellow"></div>
                     <!-- <input class="button-yellow" type="submit" value="Send"> -->
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenMail')"></div>
                 </div>
-                <button type="submit" class="sent" style="">
-                        <img class="sent" src="../assets/sent.webp" style="width: 20%; height: 20%; margin-left: 32px;"/>
-                    </button>
+                <button type="submit" class="sent" style="" >
+                    <img class="sent" src="../assets/sent.webp" style="width: 20%; height: 20%; margin-left: 32px;"/>
+                </button>
             </div>
             <div class="bar"></div>
             <div class="content" style="padding-left: 50px; height: 100%;">
@@ -27,7 +28,7 @@
                         <input name="entry.367924729" class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
                     </div>
                     <hr>
-                    <textarea name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
+                    <textarea :class="{ textareaFullscreen: $store.getters.isFullscreenMail}" name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent"></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -89,7 +90,7 @@ input {
 
 textarea {
     width: 100%;
-    height: 100%;
+    flex-grow: 0.825;
     background: none;
     border: none;
     overflow: auto;
@@ -102,6 +103,10 @@ textarea {
     color: black;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 14px;
+}
+
+.textareaFullscreen {
+    flex-grow: 0.9;
 }
 
 .resize-drag {
@@ -123,7 +128,7 @@ textarea {
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
-    overflow: hidden;
+    overflow: none;
     border: 1px solid #dadada;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
     /* transition: all 0.5s ease; */
@@ -133,11 +138,14 @@ textarea {
 }
 
 .scroll-container {
-    overflow: scroll;
+    overflow: hidden;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: scroll;
+    padding-top: 20px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -175,6 +183,8 @@ textarea {
     background: #ECECED;
     z-index: 10;
     align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .triple-button {
@@ -267,12 +277,6 @@ textarea {
     padding-top: 10px;
 }
 
-.scroll-container {
-    overflow: scroll;
-    padding-top: 20px;
-    width: 100%;
-}
-
 .expandedScrollContainer {
     padding-left: 25vw;
     padding-right: 25vw;
@@ -360,13 +364,13 @@ textarea {
 
 <script>
 import interact from "interactjs";
-import emailjs from 'emailjs-com';
 export default {
     props: {
         // shownProp: Boolean
     },
     data: function() {
         return {
+            submitted: false,
             mailSubject: this.checkMail(),
             mailSender: this.$store.getters.mailSender,
             mailContent: this.$store.getters.mailContent,
@@ -406,28 +410,13 @@ export default {
     },
     methods: {
         sendEmail() {
-            try {
-                var templateParams = {
-                    user: this.$store.getters.mailSender,
-                    message: this.$store.getters.mailContent,
-                    subject: this.$store.getters.mailSubject
-                };
-                emailjs.send('service_wverxga', 'template_6mc4gx7', templateParams, 'user_DhnG69UM2hCwPM6iyeQzP')
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                    });
-            } catch (error) {
-                console.log({ error })
-            }
-            // Reset form field
-            this.mailSender = ""
-            this.mailContent = ""
-            this.mailSubject = ""
-            this.$store.commit('toggleShownMail', false)
-            this.$store.commit('changeActiveWindow', 'Finder')
-            alert('Mail Sent!')
+            setTimeout(() => {  
+                this.$store.commit('toggleShownMail', false)
+                this.$store.commit('changeActiveWindow', 'Finder')
+                this.$store.commit('updateMailSender', '')
+                this.$store.commit('updateMailSubject', '')
+                this.$store.commit('updateMailContent', '')
+            }, 500);
         },
         checkMail() {
             if (this.$store.getters.mailSubject == 'New Message') {
