@@ -19,6 +19,11 @@
                 <div class="scroll-container">
                     <div class="header">{{$store.getters.mailSubject}}</div>
                     <div class="subject-container" style="margin-top: 5px;">
+                        <p>To:</p>
+                        <div class="receipient">Don</div>
+                    </div>
+                    <hr>
+                    <div class="subject-container" style="margin-top: 5px;">
                         <p>Subject:</p>
                         <input name="entry.609946071" class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
                     </div>
@@ -70,6 +75,13 @@ button {
 hr {
     background-color: rgb(155, 155, 155, 0.2);
     width: 100%;
+}
+
+.receipient {
+    background: rgb(194, 214, 252);
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
 }
 
 .subject-container {
@@ -420,8 +432,8 @@ export default {
                 this.$store.commit('updateMailSender', '')
                 this.$store.commit('updateMailSubject', '')
                 this.$store.commit('updateMailContent', '')
+                alert('Form successfully sent')
             }, 500);
-            alert('Form successfully sent!')
         },
         checkMail() {
             if (this.$store.getters.mailSubject == 'New Message') {
