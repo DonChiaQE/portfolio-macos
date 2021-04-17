@@ -5,10 +5,13 @@
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeMail"></div>
-                    <!-- <div class="button-yellow" v-on:click="sendEmail"></div> -->
-                    <input class="button-yellow" type="submit" value="Send"> <!--fix this-->
+                    <div class="button-yellow" v-on:click="sendEmail"></div>
+                    <!-- <input class="button-yellow" type="submit" value="Send"> -->
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenMail')"></div>
                 </div>
+                <button type="submit" class="sent" style="">
+                        <img class="sent" src="../assets/sent.webp" style="width: 20%; height: 20%; margin-left: 32px;"/>
+                    </button>
             </div>
             <div class="bar"></div>
             <div class="content" style="padding-left: 50px; height: 100%;">
@@ -16,21 +19,21 @@
                     <div class="header">{{$store.getters.mailSubject}}</div>
                     <div class="subject-container" style="margin-top: 5px;">
                         <p>Subject:</p>
-                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true"/>
+                        <input class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
                     </div>
                     <hr>
                     <div class="from-container">
                         <p>From:</p>
-                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true"/>
+                        <input class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
                     </div>
                     <hr>
                     <textarea v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                                                                            <div class="resizer resizer-l"></div>
-                                                                                            <div class="resizer resizer-t"></div>
-                                                                                            <div class="resizer resizer-r"></div> -->
+                                                                                                <div class="resizer resizer-l"></div>
+                                                                                                <div class="resizer resizer-t"></div>
+                                                                                                <div class="resizer resizer-r"></div> -->
         </form>
     </interact>
 </template>
@@ -46,6 +49,21 @@ p {
     color: rgb(155, 155, 155);
     margin-right: 5px;
     font-size: 14px;
+}
+
+button {
+    background: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 hr {
@@ -152,10 +170,11 @@ textarea {
 
 .top-bar {
     display: flex;
-    height: 40px;
+    height: 53px;
     width: 100%;
     background: #ECECED;
     z-index: 10;
+    align-items: center;
 }
 
 .triple-button {
@@ -406,6 +425,9 @@ export default {
             this.mailSender = ""
             this.mailContent = ""
             this.mailSubject = ""
+            this.$store.commit('toggleShownMail', false)
+            this.$store.commit('changeActiveWindow', 'Finder')
+            alert('Mail Sent!')
         },
         checkMail() {
             if (this.$store.getters.mailSubject == 'New Message') {
