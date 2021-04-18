@@ -7,7 +7,7 @@
             <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
             <mail id="mail" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
             <bio id="bio" v-if="$store.getters.isShownBio" style=" position: absolute;" @click.native="focusBio" />
-            <simulator id="simulator" v-if="$store.getters.isShownSimulator" style=" position: absolute;" @click.native="focusSimulator" />
+            <simulator id="simulator" v-if="$store.getters.isShownSimulator" style=" position: absolute; left:25%;" @click.native="focusSimulator" />
         </div>
         <navbar/>
     </div>

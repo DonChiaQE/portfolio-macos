@@ -7,7 +7,6 @@
                     <div class="button-red" v-on:click="closeSimulator"></div>
                     <div class="button-yellow"></div>
                     <div class="button-green"></div>
-                    
                 </div>
                 <div class="phone-info">
                         <b class="info" style="font-size: 14px;">iPhone SE</b>
@@ -23,7 +22,7 @@
                     </div>
                 </div>
                 <div class="iphone">
-                    <div class="iphone-screen">
+                    <div v-if="!locked && !lockScreen" class="iphone-screen">
                         <div class="iphone-bar">
                             <p class="bar-info">Carrier</p>
                             <p class="bar-info">{{this.time}}</p>
@@ -37,11 +36,28 @@
                             <div class="iphone-icon icon-wip"></div>
                         </div>
                     </div>
-                    <div class="button"></div>
+                    <div v-if="locked" class="iphone-locked">
+                        
+                    </div>
+                    <div v-if="lockScreen" class="iphone-lock-screen">
+                        <div class="iphone-bar">
+                            <p class="bar-info">Carrier</p>
+                            <!-- <p class="bar-info">{{this.time}}</p> -->
+                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
+                        </div>
+                        <div class="iphone-lock-main">
+                            <p style="color: white; font-weight: 200; font-size: 60px; margin: 0; padding: 0;">{{this.timeLock}}</p>
+                            <p style="color: white; font-weight: 500; font-size: 20px; margin: 0; padding: 0;">{{this.dateLock}}</p>
+                        </div>
+                        <div class="iphone-unlock">
+                            <p style="font-weight: 700; color: white;">Press home to unlock</p>
+                        </div>
+                    </div>
+                    <div class="button" @click="showLockedScreen"></div>
                 </div>
                 <div class="iphone-right-buttons">
                     <div class="buttons-right">
-                        <div class="lock"></div>
+                        <div class="lock" @click="lockiPhone"></div>
                     </div>
                 </div>
             </div>
@@ -66,6 +82,15 @@
 
 .iphone-container {
     display: flex;
+}
+
+.iphone-unlock {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
 }
 
 .iphone-left-buttons {
@@ -142,6 +167,29 @@
     justify-content: flex-end;
 }
 
+.iphone-locked {
+    height: 490px;
+    width: 285px;
+    background: black;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.iphone-lock-screen {
+    height: 490px;
+    width: 285px;
+    background: url('../assets/iphone-light.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .iphone-bar {
     display: flex;
     color: white;
@@ -162,6 +210,16 @@
 
 .iphone-grid {
     flex-grow: 1;
+}
+
+.iphone-lock-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-content: center;
+    align-items: center;
+    margin-bottom: 200px;
 }
 
 .iphone-nav {
@@ -331,13 +389,23 @@ export default {
             this.time = moment().format('hh:mm A')
         }, 1000)
         setInterval(() => {
+            this.timeLock = moment().format('hh:mm')
+        }, 1000)
+        setInterval(() => {
+            this.dateLock = moment().format('dddd, MMMM DD')
+        }, 1000)
+        setInterval(() => {
             this.date = moment().format('ddd DD MMMM')
         }, 1000)
     },
     data: function() {
         return {
             time: '',
+            timeLock: '',
+            dateLock: '',
             date: '',
+            locked: false,
+            lockScreen: false,
             resizeOption: {
                 edges: { top: true, left: true, bottom: true, right: true },
                 
@@ -386,6 +454,26 @@ export default {
 
             this.x += event.deltaRect.left;
             this.y += event.deltaRect.top;
+        },
+        lockiPhone() {
+            if (this.lockScreen == false && this.locked == false) {
+                this.locked = true
+            } else if (this.locked == true && this.lockScreen == false) {
+                this.lockScreen = true
+                this.locked = false
+            } else {
+                this.locked = true
+                this.lockScreen = false
+            }
+        },
+        showLockedScreen() {
+            if (this.locked == true && this.lockScreen == false) {
+                this.lockScreen = true
+                this.locked = false
+            } else if (this.locked == false && this.lockScreen == true) {
+                this.lockScreen = false
+                this.locked = false
+            }
         },
         dragMouseDown: function(event) {
             event.preventDefault()
