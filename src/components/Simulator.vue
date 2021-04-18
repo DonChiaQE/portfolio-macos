@@ -387,16 +387,16 @@ export default {
     beforeMount() {
         setInterval(() => {
             this.time = moment().format('hh:mm A')
-        }, 1000)
+        }, 50)
         setInterval(() => {
             this.timeLock = moment().format('hh:mm')
-        }, 1000)
+        }, 50)
         setInterval(() => {
             this.dateLock = moment().format('dddd, MMMM DD')
-        }, 1000)
+        }, 50)
         setInterval(() => {
             this.date = moment().format('ddd DD MMMM')
-        }, 1000)
+        }, 50)
     },
     data: function() {
         return {
@@ -405,7 +405,7 @@ export default {
             dateLock: '',
             date: '',
             locked: false,
-            lockScreen: false,
+            lockScreen: true,
             resizeOption: {
                 edges: { top: true, left: true, bottom: true, right: true },
                 
