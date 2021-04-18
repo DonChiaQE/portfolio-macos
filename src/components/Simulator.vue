@@ -1,41 +1,134 @@
 /* eslint-disable */
 <template>
-    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
+    <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove">
+        <div class="about-me" id="container" :class="{close: !$store.getters.isShownSimulator}">
+            <div class="top-bar" id="top-bar">
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="closeNoss"></div>
+                    <div class="button-red" v-on:click="closeSimulator"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenNossaflex')"></div>
+                    <div class="button-green"></div>
+                    
                 </div>
+                <div class="phone-info">
+                        <b class="info" style="font-size: 14px;">iPhone SE</b>
+                        <p class="info" style="font-size: 10px; color: rgb(165, 164, 164); font-weight: 700;">iOS 14.4</p>
+                    </div>
             </div>
-            <div class="bar"></div>
-            <div class="content">
-                <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenNossaflex }">
-                    <div class="header">NOSSAFLEX</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
-                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
-                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+            <div class="iphone">
+                <div class="iphone-screen">
+                    <div class="iphone-bar">
+                        <p class="bar-info">Carrier</p>
+                        <p class="bar-info">{{this.time}}</p>
+                        <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
+                    </div>
+                    <div class="iphone-grid"></div>
+                    <div class="iphone-nav">
+                        <div class="iphone-icon icon-wip"></div>
+                        <div class="iphone-icon icon-wip"></div>
+                        <div class="iphone-icon icon-wip"></div>
+                        <div class="iphone-icon icon-wip"></div>
+                    </div>
                 </div>
+                <div class="button"></div>
             </div>
-            <!-- <div class="resizer resizer-b"></div>
-                                <div class="resizer resizer-l"></div>
-                                <div class="resizer resizer-t"></div>
-                                <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
 
 <style scoped>
+.iphone {
+    height: 660px;
+    width: 340px;
+    background: rgb(26, 25, 25);
+    border-radius: 55px;;
+    margin-top: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: solid rgb(58,58,64, 0.5);
+    flex-direction: column;
+}
+
+.iphone-screen {
+    height: 490px;
+    width: 285px;
+    background: url('../assets/iphone-light.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.iphone-bar {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    align-items: center;
+}
+
+.bar-info {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.iphone-grid {
+    flex-grow: 1;
+}
+
+.iphone-nav {
+    background: rgb(255, 255, 255, 0.4);
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+.iphone-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: none;
+}
+
+.icon-wip {
+    background-image: url('../assets/Icons/WIP.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.button {
+    border-radius: 50%;
+    border: solid rgb(106,106,106);
+    height: 54px;
+    width: 54px;
+    margin-bottom: 5px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:active {
+    background: rgb(72,72,71);
+}
+
 .resize-drag {
     box-sizing: border-box;
     background: none;
@@ -49,19 +142,11 @@
 }
 
 .about-me {
-    min-height: 300px;
     min-width: 350px;
-    height: 300px;
-    width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
-    overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
-    max-height: 100%;
-    max-width: 100%;
-    align-items: flex-end;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,28 +165,14 @@
     }
 }
 
-.fullscreen {
-    width: 100% !important;
-    height: var(--fullscreen) !important;
-    margin: 0;
-    transition: all 0.5s ease;
-    padding: 0;
-}
-
-.close {
-    display: none;
-}
-
-.show {
-    display: block;
-}
-
 .top-bar {
     display: flex;
-    height: 40px;
+    height: 50px;
     width: 100%;
-    background: #ECECED;
+    background: rgb(43, 42, 41);
     z-index: 10;
+    border-radius: 15px;
+    align-items: center;
 }
 
 .triple-button {
@@ -133,7 +204,7 @@
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: #62c454;
+    background: rgb(221,220,220);
 }
 
 .button-red:hover {
@@ -148,116 +219,14 @@
     cursor: pointer;
 }
 
-.textarea-content {
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
-    overflow: auto;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    resize: none;
-    caret-color: black;
-    color: black;
+.phone-info {
+    margin-left: 20px;
 }
 
-.bar {
-    background: #dadada;
-    height: 1px;
-    width: 100%;
-}
-
-.circle {
-    background: #f1f0f2;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100%;
-    padding-bottom: 30px;
-}
-
-.header {
-    font-weight: 700;
-    font-size: 28px;
-    padding-top: 10px;
-}
-
-.scroll-container {
-    overflow: scroll;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-}
-
-.expandedScrollContainer {
-    padding-left: 25vw ;
-    padding-right: 25vw ;
-}
-
-.paragraph {
-    font-weight: 100;
-    font-size: 14px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.paragraph:last-child {
-    padding-bottom: 80px;
-}
-
-.resizer-r {
-    cursor: col-resize;
-    height: 100%;
-    right: 0;
-    top: 0;
-    width: 5px;
-}
-
-.resizer-b {
-    bottom: 0;
-    cursor: row-resize;
-    height: 5px;
-    left: 0;
-    width: 100%;
-}
-
-.resizer-t {
-    top: 0;
-    cursor: row-resize;
-    height: 5px;
-    left: 0;
-    width: 100%;
-}
-
-.resizer-l {
-    cursor: col-resize;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    width: 5px;
-}
-
-.resizer {
-    position: absolute;
+.info {
+    padding: 0;
+    margin: 0;
+    color: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -265,36 +234,31 @@ img {
         border: 1px solid #0B0A0B;
         background: #1C1C1D;
     }
-    .top-bar {
-        background: #333333;
-    }
-    .bar {
-        background: #0B0A0B
-    }
     .hello {
         color: white
-    }
-    .textarea-content {
-        caret-color: white;
-        color: white;
-    }
-    .header {
-        color: white;
-    }
-    .paragraph {
-        color: white;
     }
 }
 </style>
 
 <script>
+import moment from 'moment'
 import interact from "interactjs";
 export default {
     props: {
         // shownProp: Boolean
     },
+    beforeMount() {
+        setInterval(() => {
+            this.time = moment().format('hh:mm A')
+        }, 1000)
+        setInterval(() => {
+            this.date = moment().format('ddd DD MMMM')
+        }, 1000)
+    },
     data: function() {
         return {
+            time: '',
+            date: '',
             resizeOption: {
                 edges: { top: true, left: true, bottom: true, right: true },
                 
@@ -335,7 +299,7 @@ export default {
         dragmove(event) {
             this.x += event.dx;
             this.y += event.dy;
-            this.$store.commit('zIndexIncrement', 'noss')
+            this.$store.commit('zIndexIncrement', 'simulator')
         },
         resizemove(event) {
             this.w = event.rect.width;
@@ -366,9 +330,9 @@ export default {
             document.onmouseup = null
             document.onmousemove = null
         },
-        closeNoss(e) {
+        closeSimulator(e) {
             e.stopPropagation()
-            this.$store.commit('toggleShownNossaflex', false)
+            this.$store.commit('toggleShownSimulator', false)
             this.$store.commit('changeActiveWindow', 'Finder')
         }
     },

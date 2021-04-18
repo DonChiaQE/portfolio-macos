@@ -5,7 +5,7 @@
               <div class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
               <div class="icon-photo icon" v-on:click="showPhotos"></div>
               <div class="icon-mail icon" v-on:click="showMail"></div>
-              <div class="icon-wip icon"></div>
+              <div class="icon-simulator icon-special" v-on:click="showSimulator"></div>
               <div class="icon-wip icon"></div>
               <div class="icon-stickies icon" v-on:click="showStickies"></div>
           </div>
@@ -46,6 +46,13 @@
         margin-right: 1vw !important;
         border-radius: 2vw !important;
     }
+    .icon-special {
+        width: 8.5vw !important;
+        height: 8.5vw !important;
+        margin-left: 1vw !important;
+        margin-right: 1vw !important;
+        border-radius: 2vw !important;
+    }
 }
 
 .wrapper {
@@ -65,9 +72,26 @@
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
+    background: none;
 }
 
 .icon:hover{
+    cursor: pointer;
+}
+
+.icon-special {
+    margin-top: 3px;
+    width: 49px;
+    height: 49px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: none;
+}
+
+.icon-special:hover{
     cursor: pointer;
 }
 
@@ -115,6 +139,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.icon-simulator {
+    background-image: url('../assets/Icons/Simulator.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -175,6 +206,13 @@ export default {
             this.$store.commit('toggleShownBio', true)
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'bio')
+            }, 1);
+        },
+        showSimulator() {
+            this.$store.commit('changeActiveWindow', 'Simulator')
+            this.$store.commit('toggleShownSimulator', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'simulator')
             }, 1);
         }
     },

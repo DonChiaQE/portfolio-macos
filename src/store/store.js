@@ -27,7 +27,9 @@ export const store = new Vuex.Store({
     isFullscreenMail: false,
     mailContent: '',
     mailSender: '',
-    mailSubject: 'New Message'
+    mailSubject: 'New Message',
+    // Simulator window
+    isShownSimulator: false,
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -82,7 +84,10 @@ export const store = new Vuex.Store({
     },
     updateMailSender(state, local) {
       state.mailSender = local
-    }
+    },
+    toggleShownSimulator(state, shownBool) {
+      state.isShownSimulator = shownBool
+    },
   },
   actions: {
     
@@ -135,6 +140,9 @@ export const store = new Vuex.Store({
     },
     mailSender: state => {
       return state.mailSender
-    }
+    },
+    isShownSimulator: state => {
+      return state.isShownSimulator
+    },
   }
 })

@@ -7,6 +7,7 @@
             <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
             <mail id="mail" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
             <bio id="bio" v-if="$store.getters.isShownBio" style=" position: absolute;" @click.native="focusBio" />
+            <simulator id="simulator" v-if="$store.getters.isShownSimulator" style=" position: absolute;" @click.native="focusSimulator" />
         </div>
         <navbar/>
     </div>
@@ -20,6 +21,7 @@ import PhotosModal from './components/PhotosModal.vue'
 import Stickies from './components/Notepad.vue'
 import Mail from './components/Mail.vue'
 import Bio from './components/Bio.vue'
+import Simulator from './components/Simulator.vue'
 
 export default {
     name: 'App',
@@ -35,7 +37,8 @@ export default {
         TopNav,
         Stickies,
         Mail,
-        Bio
+        Bio,
+        Simulator
     },
     methods: {
         focusPhotos() {
@@ -57,12 +60,21 @@ export default {
         focusBio() {
             this.$store.commit('changeActiveWindow', 'Bio')
             this.$store.commit('zIndexIncrement', 'bio')
+        },
+        focusSimulator() {
+            this.$store.commit('changeActiveWindow', 'Simulator')
+            this.$store.commit('zIndexIncrement', 'simulator')
         }
     },
-    computed() {
-
+    computed: {
+        style() {
+            return {
+                '--fullscreen': window.innerHeight - 30 + "px"
+            };
+        }
     },
     mounted() {
+        document.getElementById('screen').style.height = window.innerHeight - 30 + "px";
         document.addEventListener("keydown", function(e) {
             if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey) && e.keyCode == 83) {
                 e.preventDefault();
@@ -110,7 +122,6 @@ html {
 }
 
 .screen {
-    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }
 

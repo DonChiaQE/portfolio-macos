@@ -115,6 +115,7 @@ export default {
         dragmove(event) {
             this.x += event.dx;
             this.y += event.dy;
+            this.$store.commit('zIndexIncrement', 'stickies')
         },
         resizemove(event) {
             this.w = event.rect.width;
