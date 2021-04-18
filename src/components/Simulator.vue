@@ -14,22 +14,36 @@
                         <p class="info" style="font-size: 10px; color: rgb(165, 164, 164); font-weight: 700;">iOS 14.4</p>
                     </div>
             </div>
-            <div class="iphone">
-                <div class="iphone-screen">
-                    <div class="iphone-bar">
-                        <p class="bar-info">Carrier</p>
-                        <p class="bar-info">{{this.time}}</p>
-                        <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
-                    </div>
-                    <div class="iphone-grid"></div>
-                    <div class="iphone-nav">
-                        <div class="iphone-icon icon-wip"></div>
-                        <div class="iphone-icon icon-wip"></div>
-                        <div class="iphone-icon icon-wip"></div>
-                        <div class="iphone-icon icon-wip"></div>
+            <div class="iphone-container">
+                <div class="iphone-left-buttons">
+                    <div class="buttons-left">
+                        <div class="silence"></div>
+                        <div class="up"></div>
+                        <div class="down"></div>
                     </div>
                 </div>
-                <div class="button"></div>
+                <div class="iphone">
+                    <div class="iphone-screen">
+                        <div class="iphone-bar">
+                            <p class="bar-info">Carrier</p>
+                            <p class="bar-info">{{this.time}}</p>
+                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
+                        </div>
+                        <div class="iphone-grid"></div>
+                        <div class="iphone-nav">
+                            <div class="iphone-icon icon-wip"></div>
+                            <div class="iphone-icon icon-wip"></div>
+                            <div class="iphone-icon icon-wip"></div>
+                            <div class="iphone-icon icon-wip"></div>
+                        </div>
+                    </div>
+                    <div class="button"></div>
+                </div>
+                <div class="iphone-right-buttons">
+                    <div class="buttons-right">
+                        <div class="lock"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </interact>
@@ -48,6 +62,71 @@
     justify-content: space-around;
     border: solid rgb(58,58,64, 0.5);
     flex-direction: column;
+}
+
+.iphone-container {
+    display: flex;
+}
+
+.iphone-left-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iphone-right-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttons-left {
+    margin-bottom: 300px;
+}
+
+.buttons-right {
+    margin-bottom: 320px;
+}
+
+.silence {
+    width: 5px;
+    height: 35px;
+    background: rgb(44, 43, 43);
+    margin-bottom: 28px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.up {
+    width: 5px;
+    height: 62px;
+    background: rgb(44, 43, 43);
+    margin-bottom: 4px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.down {
+    width: 5px;
+    height: 62px;
+    background: rgb(44, 43, 43);
+    margin-top: 4px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.lock {
+    width: 5px;
+    height: 62px;
+    background: rgb(44, 43, 43);
+    margin-top: 4px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.lock:hover {
+    width: 10px;
+    animation: normal;
 }
 
 .iphone-screen {
@@ -142,7 +221,6 @@
 }
 
 .about-me {
-    min-width: 350px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -173,6 +251,7 @@
     z-index: 10;
     border-radius: 15px;
     align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
 }
 
 .triple-button {
