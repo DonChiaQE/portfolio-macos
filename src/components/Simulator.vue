@@ -367,10 +367,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .about-me {
-        border: 1px solid #0B0A0B;
-        background: #1C1C1D;
-    }
     .hello {
         color: white
     }
