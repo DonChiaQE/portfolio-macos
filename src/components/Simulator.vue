@@ -370,6 +370,12 @@
     .hello {
         color: white
     }
+    .iphone-screen {
+        background-image: url('../assets/iphone-dark.webp');
+    }
+    .iphone-lock-screen {
+        background-image: url('../assets/iphone-dark.webp');
+    }
 }
 </style>
 

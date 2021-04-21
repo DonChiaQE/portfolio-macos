@@ -12,25 +12,75 @@
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenBio }">
-                    <div class="header">Hello There </div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
-                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
-                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <img class="self" src="../assets/Biography/self.webp" />
+                    <div class="header">Don Chia</div>
+                    <div class="subtitle">Web Developer | iOS Developer | UI/UX Designer</div>
+                    <div class="subtitle">Singapore 📍</div>
+                    <div class="badge-grid">
+                        <img class="badge" alt="Swift" src="https://img.shields.io/badge/-Swift-orange" />
+                        <img class="badge" alt="Python" src="https://img.shields.io/badge/-Python-blue" />
+                        <img class="badge" alt="JavaScript" src="https://img.shields.io/badge/-Javascript-yellow" />
+                        <img class="badge" alt="SQL" src="https://img.shields.io/badge/-SQL-lightgrey" />
+                        <img class="badge" alt="Git" src="https://img.shields.io/badge/-Git-critical" />
+                        <img class="badge" alt="HTML/CSS" src="https://img.shields.io/badge/-HTML%2FCSS-yellowgreen" />
+                        <img class="badge" alt="SwiftUI" src="https://img.shields.io/badge/-SwiftUI-3e8bc3" />
+                        <img class="badge" alt="Vue" src="https://img.shields.io/badge/-VueJS-61b083" />
+                        <img class="badge" alt="Flask" src="https://img.shields.io/badge/-Flask-406893" />
+                        <img class="badge" alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-4ca158" />
+                        <img class="badge" alt="SQLite" src="https://img.shields.io/badge/-SQLite-64a2c9" />
+                        <img class="badge" alt="Figma" src="https://img.shields.io/badge/-Figma-8c5aee" />
+                    </div>
+                    <div class="content">
+                        <div class="inner-content">
+                            <div class="heading"><b>About Me</b></div>
+                            <div class="paragraph">Hello there! I am Don from Singapore and I am an 18 year old student who's extremely passionate in both programming and design for both the web and iOS platform. I am currently still a student in high school but let not my age
+                                be the key defining factor as I often aim to punch above my weight.</div>
+                            <div class="paragraph">I have worked with a mixture of design and frontend/backend technologies, be it for Web Development or iOS Development.</div>
+                        </div>
+                        <div class="inner-content">
+                            <div class="heading"><b>NOSSAFLEX</b></div>
+                            <div class="paragraph">NOSSAFLEX is an EXIF organising tool for analog photographers like myself. It was built using Swift along with the newest framework from Apple, SwiftUI and also a NoSQL database from Google, Firebase. It is an organisation based
+                                and registered in Australia.</div>
+                            <div class="paragraph">Team NOSSAFLEX consists of a small but tightly knit team. They are, Diego from the USA, Josh and his sister, Maddie from Australia and myself from Singapore. We are an international team that complements each other's strengths.
+                                Josh being the brains behind this operations leads our team in marketting as well as the UI/UX design of the app, Diego leads the team with his prowness in Swift as a backend language and I lead the team in the frontend department,
+                                helping assemble Josh's ideas into reality using SwiftUI.</div>
+                            <div class="paragraph">We recently launched our app onto the international App Store, exclusively for iOS and we are proud to see the support the Analog community has given us. Over 1k new and unique users signed up for the app within the first weeks
+                                of the launch, not too shabby considering how niche our target group is.</div>
+                            <div class="paragraph">You can find out more about NOSSAFLEX by clicking <span style="cursor: pointer; color: blue;" v-on:click="showNossaflex">here</span>.</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>Internships</b></div>
+                            <div class="paragraph">I have had two internship opportunities so far. The first internship was at a local SME firm that created a variety of software technologies for projects and the second internship was a local startup Fintech firm. </div>
+                            <div class="paragraph">Throughout the internships I worked with a mixture of iOS and Web Technologies. Storyboarding and UIKit was used in my first tech internship and Vuejs with Bootstrap was used in my second internship as I was a frontend intern.</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>iOS Developer</b></div>
+                            <div class="paragraph">As listed above, I have over a year of experience with SwiftUI and have had plenty of projects that features the use of SwiftUI. SwiftUI was used in most of the components building NOSSAFLEX and the components featured required custom styling to fit our themeing. I have also had the chance to participate in two WWDC Student Challenges in 2020 as well as 2021, both projects featured SwiftUI and a variety of other Swift technologies.</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>Web Developer</b></div>
+                            <div class="paragraph">As a web developer, I have also had a lot of chances to practice and participate in projects to further hone my skills. I have plenty of experience with backend Python as well as databases using SQL or NoSQL solutions. But most of my time is dedicated to frontend development using Vuejs and elaborate styling of websites (such as this one 😁).</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>UI/UX Designer</b></div>
+                            <div class="paragraph">Fullstack development is very sought after nowadays and I have made sure to keep up with such trends by honing my skills in UI/UX design as well. I am thankful for the various opportunities I have had to work alongside industry expert and have also taken the chance to learn and hone my UI/UX design skills with tools such as Figma.</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>Interests and Hobbies</b></div>
+                            <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: blue;" v-on:click="showPhotos">here</span>.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
-                                <div class="resizer resizer-l"></div>
-                                <div class="resizer resizer-t"></div>
-                                <div class="resizer resizer-r"></div> -->
+                                    <div class="resizer resizer-l"></div>
+                                    <div class="resizer resizer-t"></div>
+                                    <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -49,9 +99,9 @@
 }
 
 .about-me {
-    min-height: 300px;
+    min-height: 500px;
     min-width: 350px;
-    height: 300px;
+    height: 500px;
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
@@ -62,6 +112,12 @@
     max-height: 100%;
     max-width: 100%;
     align-items: flex-end;
+}
+
+.self {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,12 +136,58 @@
     }
 }
 
+.badge-grid {
+    display: table;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.badge {
+    width: auto;
+    height: 20px;
+    border-radius: 0px;
+    font-size: 12px;
+    padding-right: 10px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
+}
+
+.subtitle {
+    font-size: 12px;
+    color: gray;
+}
+
+.heading {
+    padding-bottom: 5px;
+}
+
+.inner-content {
+    padding-top: 30px;
+}
+
+.inner-content:last-child {
+    padding-bottom: 80px;
+}
+
 .fullscreen {
     width: 100% !important;
     height: var(--fullscreen) !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;
+}
+
+.nossaflex-app {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 22%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../assets/Icons/NossaflexLight.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: rgb(0,0,0,0, 0.5) 1px solid;
 }
 
 .close {
@@ -192,7 +294,6 @@ img {
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding-bottom: 30px;
 }
 
 .header {
@@ -209,19 +310,18 @@ img {
 }
 
 .expandedScrollContainer {
-    padding-left: 25vw ;
-    padding-right: 25vw ;
+    padding-left: 25vw;
+    padding-right: 25vw;
 }
 
 .paragraph {
     font-weight: 100;
     font-size: 14px;
-    padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .paragraph:last-child {
-    padding-bottom: 80px;
+    padding-bottom: 0px;
 }
 
 .resizer-r {
@@ -284,6 +384,9 @@ img {
     .paragraph {
         color: white;
     }
+    .heading {
+        color: white;
+    }
 }
 </style>
 
@@ -297,7 +400,7 @@ export default {
         return {
             resizeOption: {
                 edges: { top: true, left: true, bottom: true, right: true },
-                
+
             },
             positions: {
                 clientX: undefined,
@@ -314,7 +417,7 @@ export default {
                 ],
                 allowFrom: '.top-bar',
             },
-            
+
             // values for interact.js transformation
             x: 0,
             y: 0,
@@ -332,6 +435,22 @@ export default {
         }
     },
     methods: {
+        showPhotos(e) {
+            e.stopPropagation()
+            this.$store.commit('changeActiveWindow', 'Photos')
+            this.$store.commit('toggleShownPhotos', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'photos')
+            }, 1);
+        },
+        showNossaflex(e) {
+            e.stopPropagation()
+            this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
+            this.$store.commit('toggleShownNossaflex', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'noss')
+            }, 1);
+        },
         dragmove(event) {
             this.x += event.dx;
             this.y += event.dy;

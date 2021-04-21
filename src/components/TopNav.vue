@@ -96,7 +96,7 @@ export default {
         display: none;
     }
     .nav-left {
-        width: 100px;
+        width: 150px;
         margin-left: 5px;
     }
     .nav-right {
