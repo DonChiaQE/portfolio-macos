@@ -30,7 +30,6 @@
                         <img class="badge" alt="SQLite" src="https://img.shields.io/badge/-SQLite-64a2c9" />
                         <img class="badge" alt="Figma" src="https://img.shields.io/badge/-Figma-8c5aee" />
                     </div>
-                    <div class="content">
                         <div class="inner-content">
                             <div class="heading"><b>About Me</b></div>
                             <div class="paragraph">Hello there! I am Don from Singapore and I am an 18 year old student who's extremely passionate in both programming and design for both the web and iOS platform. I am currently still a student in high school but let not my age
@@ -76,7 +75,11 @@
                             <div class="heading"><b>Interests and Hobbies</b></div>
                             <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: blue;" v-on:click="showPhotos">here</span>.</div>
                         </div>
-                    </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>Résumé</b></div>
+                            <a href="/files/resume.pdf" class="paragraph">Check out my résumé here.</a>
+                        </div>                
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -282,12 +285,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
 }
 
 .content {

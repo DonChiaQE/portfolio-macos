@@ -12,19 +12,42 @@
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenNossaflex }">
-                    <div class="header">NOSSAFLEX</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Mauris a consectetur lorem. Vestibulum arcu est, imperdiet a sodales eu, feugiat nec lacus. Quisque odio metus, consequat eu neque eu, volutpat finibus elit. Vestibulum pellentesque porta sapien, et accumsan ex ultrices sit amet. Nunc
-                        et lorem mollis, dictum libero ac, sollicitudin arcu. Morbi porta lacus eu feugiat tempus. Donec ut libero quam. Curabitur in nibh metus. Aliquam in nisi est. Etiam eget feugiat mauris, non sodales purus. Suspendisse pharetra scelerisque
-                        sem, vitae fermentum magna mattis vitae. Curabitur mattis libero vel rutrum dictum.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
-                    <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum lacinia turpis, eu ullamcorper ligula eleifend sed. Cras at diam eros. Phasellus dui nulla, consequat vestibulum nisl nec, efficitur sodales dui. Vivamus sit amet
-                        tellus ac enim imperdiet fringilla. Vivamus feugiat fermentum elit in laoreet. Nulla cursus arcu et fermentum efficitur. Sed euismod ultrices scelerisque. Sed malesuada eget nisl nec venenatis. Proin congue vehicula nulla, et auctor
-                        nisi. Duis eget leo massa. Nunc at gravida nibh.</div>
+                    <div class="hero"></div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase One: The Beginning</b></div>
+                        <div class="paragraph">NOSSAFLEX started as two separate entities in the beginning. An idea that festered in my mind as an EXIF data logger app... for the Apple Watch. Sketches of the original app exist in images and they were created using Apple's Storyboarding system. It didn't make much sense to me but when I uploaded it onto online platforms like Reddit, the concept took off and it was an instant hit.</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Two: LUCE</b></div>
+                        <div class="paragraph">Within my Reddit post was a request for help. I had just learnt how to create storyboards in Swift and was honestly afraid of letting my newfound audience down, I requested anybody with experience working with Swift to come forward and help out. By stroke of luck, I met Diego. Diego was a skilled CS graduate, he had plenty of experience with iOS development and he was more than happy to help out with development.</div>
+                        <div class="paragraph">I was glad to have found some help for the app as I quickly learnt that an editor from The Phoblographer had contacted me asking about the Reddit post. Thankfully, Diego came to my rescue and mocked up some ideas for the app really swiftly (pun intended). The Phoblographer article can be found <a href="https://www.thephoblographer.com/2020/03/09/luce-an-app-that-could-help-analog-photographers-log-exif-data/">here</a>. Pretty neat eh?</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Three: Merger</b></div>
+                        <div class="paragraph">Development started but around April we were contacted by a fan of ours about another app out there that was pretty similar to ours. It was named NOSSAFLEX and it piqued our interests. We quickly got into contact and realised that our idea were pretty much the same. Enter Josh, the brainchild of NOSSAFLEX. A naming system that gave meaning to a bunch of meaningless EXIF strings. NO stood for shot number, SS stood for shutter speed, A stood for aperture, FL stood for focal length and EX stood for exposure.</div>
+                        <div class="paragraph">We quickly jumped aboard the idea and progress was made to discuss the app's layout. It was eventually decided that the app would be built with SwiftUI with Firebase as its Database. Josh sprang into action to sketch up some mockups and we got cracking.</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Four: Neumorphism</b></div>
+                        <div class="paragraph">The first variation of the app featured a UI fad called neumorphism. The design was a fad created by users at dribbble.com who felt that skeumorphism needed to make a comeback again. Now what is skeumorphism exactly? Remember the pre-iOS 9? That's skeumorphism. Book apps that looked like shelves, a calculator that looked like its real life counterpart and a notepad that looked like a real life notepad. That's skeumorphism.</div>
+                        <div class="paragraph">Then what's neumorphism? Well, neumorphism is skeumorphism reimagined with a dash of latex. Soft shadows coupled with muted whites and buttons that often created inner shadows gave a feel of pressing a rubber button. It looked and felt good the first few times, but after awhile, the design became a huge eyesore and also an accessibility issue. The shadows were unsightly and it got difficult to use the app after some time.</div>
+                        <div class="paragraph">Thankfully, the design was quickly scrapped during the beta phase and we opted for a much simpler and friendly design.</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Five: Sketchbook</b></div>
+                        <div class="paragraph">The next design we opted for was a much friendlier notebook-esque look. Grid paper, highlighted text coupled with a warm yellow tint for the sketchbook feel gave the app a welcoming feel. The app needed a makeover fast and I quickly got into action, converting all old components into the more clean and sleek design. Josh furthered the design by creating lottie animations that played whenever the users booted up the app, patents of a variety of camera equipments and accessories were painstakingly drawn out by Josh.</div>
+                        <div class="paragraph">Diego on the other hand tolled hard to ensure that our much anticipated feature, the lightmeter, got pushed out on time. The app was finally completed around the end of December and the final rounds of beta testing was ending.</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Six: App Store Launch</b></div>
+                        <div class="paragraph">The app was finally launched on 5th February of 2021 after over a year of development. It was an instant hit with the community, garnering support from Reddit, Youtube and Facebook forums alike. Users from all around the world signed up for the app and we had over a thousand users within the first week. Thousands of pieces of data was being logged daily by users and we were heartened to see daily usage in our app.</div>
+                    </div>
+                    <div class="inner-content">
+                        <div class="heading"><b>Phase Seven: Beyond iOS</b></div>
+                        <div class="paragraph">Now that iOS was done, we set our sights for the next frontier, the Web and Android. Our current goal is to create a web app that users are able to access through their phones or laptops, allowing them to attach EXIF data to their photo with much more ease.</div>
+                    </div>
+                    <br>
+                    <a href="https://www.nossaflex.io" style="padding-bottom: 80px; ">NOSSAFLEX</a>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
@@ -49,9 +72,9 @@
 }
 
 .about-me {
-    min-height: 300px;
+    min-height: 500px;
     min-width: 350px;
-    height: 300px;
+    height: 500px;
     width: 600px;
     border-radius: 15px;
     background: #F3F2F2;
@@ -80,12 +103,54 @@
     }
 }
 
+.hero {
+    width: 100%;
+    height: 200px;
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    background-image: url('../assets/Nossaflex/hero_light.webp');
+}
+
+.subtitle {
+    font-size: 12px;
+    color: gray;
+}
+
+.heading {
+    padding-bottom: 5px;
+}
+
+.inner-content {
+    padding-top: 30px;
+}
+
+.inner-content:last-child {
+    padding-bottom: 30px;
+}
+
 .fullscreen {
     width: 100% !important;
     height: var(--fullscreen) !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;
+}
+
+.nossaflex-app {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 22%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../assets/Icons/NossaflexLight.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: rgb(0,0,0,0, 0.5) 1px solid;
 }
 
 .close {
@@ -180,19 +245,12 @@
     align-items: center;
 }
 
-img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-}
-
 .content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding-bottom: 30px;
 }
 
 .header {
@@ -209,19 +267,14 @@ img {
 }
 
 .expandedScrollContainer {
-    padding-left: 25vw ;
-    padding-right: 25vw ;
+    padding-left: 25vw;
+    padding-right: 25vw;
 }
 
 .paragraph {
     font-weight: 100;
     font-size: 14px;
-    padding-top: 10px;
     padding-bottom: 10px;
-}
-
-.paragraph:last-child {
-    padding-bottom: 80px;
 }
 
 .resizer-r {
@@ -283,6 +336,12 @@ img {
     }
     .paragraph {
         color: white;
+    }
+    .heading {
+        color: white;
+    }
+    .hero {
+        background-image: url('../assets/Nossaflex/hero_dark.webp');
     }
 }
 </style>

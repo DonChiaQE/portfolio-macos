@@ -1,13 +1,13 @@
 <template>
     <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
           <div class="bar-container">
-              <div class="icon-bio icon" v-on:click="showBio"></div>
-              <div class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
-              <div class="icon-photo icon" v-on:click="showPhotos"></div>
-              <div class="icon-mail icon" v-on:click="showMail"></div>
-              <div class="icon-simulator icon-special" v-on:click="showSimulator"></div>
+              <div alt="Biography" class="icon-bio icon" v-on:click="showBio"></div>
+              <div alt="NOSSAFLEX" class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
+              <div alt="Photos" class="icon-photo icon" v-on:click="showPhotos"></div>
+              <div alt="Mail" class="icon-mail icon" v-on:click="showMail"></div>
+              <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div>
               <div class="icon-wip icon"></div>
-              <div class="icon-stickies icon" v-on:click="showStickies"></div>
+              <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div>
           </div>
         </div>
 </template>
