@@ -2,11 +2,11 @@
     <div id="app">
         <TopNav />
         <div class="screen" id="screen" style="position: relative;">
-            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute; left:50% !important; margin-left:-45vw; top:50% !important; margin-top:-25vh;" @click.native="focusNoss" />
+            <nossaflex-modal id="noss" v-if="$store.getters.isShownNossaflex" style=" position: absolute;" @click.native="focusNoss" />
             <photos-modal id="photos" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
             <stickies id="stickies" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
             <mail id="mail" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
-            <bio id="bio" v-if="$store.getters.isShownBio" style=" position: absolute;" @click.native="focusBio" />
+            <bio id="bio" v-if="$store.getters.isShownBio" style=" position: absolute; top: 5%; left: 5vw" @click.native="focusBio" />
             <simulator id="simulator" v-if="$store.getters.isShownSimulator" style=" position: absolute; left:25%;" @click.native="focusSimulator" />
         </div>
         <navbar/>

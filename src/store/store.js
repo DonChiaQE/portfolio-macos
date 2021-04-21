@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     // Active window 
-    activeWindow: 'Finder',
+    activeWindow: 'Bio',
     // Z-index counter
     zIndex: 2,
     // Nossaflex window
@@ -16,7 +16,7 @@ export const store = new Vuex.Store({
     isShownPhotos: false,
     isFullscreenPhotos: false,
     // Bio window
-    isShownBio: false,
+    isShownBio: true,
     isFullscreenBio: false,
     // Stickies window
     isShownStickies: false,
