@@ -58,11 +58,13 @@
                         <div class="inner-content">
                             <div class="heading"><b>iOS Developer</b></div>
                             <div class="paragraph">As listed above, I have over a year of experience with SwiftUI and have had plenty of projects that features the use of SwiftUI. SwiftUI was used in most of the components building NOSSAFLEX and the components featured required custom styling to fit our themeing. I have also had the chance to participate in two WWDC Student Challenges in 2020 as well as 2021, both projects featured SwiftUI and a variety of other Swift technologies.</div>
+                            <div class="paragraph">Here are some of the projects I have contributed towards. <a href="https://github.com/dhs17y2adonchia/WWDC2021">[Submission for WWDC 2021]</a> <a href="https://github.com/dhs17y2adonchia/push-pop-push-views-swiftui-example">[Push and Popping Solution for SwiftUI]</a></div>
                         </div>
 
                         <div class="inner-content">
                             <div class="heading"><b>Web Developer</b></div>
                             <div class="paragraph">As a web developer, I have also had a lot of chances to practice and participate in projects to further hone my skills. I have plenty of experience with backend Python as well as databases using SQL or NoSQL solutions. But most of my time is dedicated to frontend development using Vuejs and elaborate styling of websites (such as this one 😁).</div>
+                            <div class="paragraph">Here are some of the projects I have contributed towards. <a href="https://github.com/dunmanhigh-isac/dhap-2021">[MUN Website for School]</a> <a href="https://github.com/dhs17y2adonchia/marketplace">[CMS Marketplace]</a> <a href="https://github.com/zaydek/duomo">[SCSS Library]</a></div>
                         </div>
 
                         <div class="inner-content">
