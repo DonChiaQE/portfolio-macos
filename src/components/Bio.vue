@@ -73,7 +73,7 @@
 
                         <div class="inner-content">
                             <div class="heading"><b>Interests and Hobbies</b></div>
-                            <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: blue;" v-on:click="showPhotos">here</span>.</div>
+                            <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: blue;" v-on:click="showPhotos">here</span> while you can find my colorization portfolio <span style="cursor: pointer; color: blue;" v-on:click="showColorization">here</span>.</div>
                         </div>
 
                         <div class="inner-content">
@@ -440,6 +440,14 @@ export default {
             this.$store.commit('toggleShownPhotos', true)
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'photos')
+            }, 1);
+        },
+        showColorization(e) {
+          e.stopPropagation()
+          this.$store.commit('changeActiveWindow', 'Colorization')
+          this.$store.commit('toggleShownColorization', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'colorization')
             }, 1);
         },
         showNossaflex(e) {

@@ -15,6 +15,9 @@ export const store = new Vuex.Store({
     // Photo window
     isShownPhotos: false,
     isFullscreenPhotos: false,
+    // Colorization window
+    isShownColorization: false,
+    isFullscreenColorization: false,
     // Bio window
     isShownBio: true,
     isFullscreenBio: false,
@@ -43,6 +46,12 @@ export const store = new Vuex.Store({
     },
     toggleFullscreenPhotos(state) {
       state.isFullscreenPhotos = !state.isFullscreenPhotos
+    },
+    toggleShownColorization(state, shownBool) {
+      state.isShownColorization = shownBool
+    },
+    toggleFullscreenColorization(state) {
+      state.isFullscreenColorization = !state.isFullscreenColorization
     },
     toggleShownStickies(state, shownBool) {
       state.isShownStickies = shownBool
@@ -104,6 +113,12 @@ export const store = new Vuex.Store({
     },
     isFullscreenPhotos: state => {
       return state.isFullscreenPhotos
+    },
+    isShownColorization: state => {
+      return state.isShownColorization
+    },
+    isFullscreenColorization: state => {
+      return state.isFullscreenColorization
     },
     isShownStickies: state => {
       return state.isShownStickies

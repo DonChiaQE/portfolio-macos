@@ -9,9 +9,9 @@
                     <div class="button-green"></div>
                 </div>
                 <div class="phone-info">
-                        <b class="info" style="font-size: 14px;">iPhone SE</b>
-                        <p class="info" style="font-size: 10px; color: rgb(165, 164, 164); font-weight: 700;">iOS 14.4</p>
-                    </div>
+                    <b class="info" style="font-size: 14px;">iPhone SE</b>
+                    <p class="info" style="font-size: 10px; color: rgb(165, 164, 164); font-weight: 700;">iOS 14.4</p>
+                </div>
             </div>
             <div class="iphone-container">
                 <div class="iphone-left-buttons">
@@ -26,24 +26,24 @@
                         <div class="iphone-bar">
                             <p class="bar-info">Carrier</p>
                             <p class="bar-info">{{this.time}}</p>
-                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
+                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp" />
                         </div>
                         <div class="iphone-grid"></div>
                         <div class="iphone-nav">
-                            <div class="iphone-icon icon-wip"></div>
+                            <a href="https://www.instagram.com/__dontax__" class="iphone-icon icon-wip"></a>
                             <div class="iphone-icon icon-wip"></div>
                             <div class="iphone-icon icon-wip"></div>
                             <div class="iphone-icon icon-wip"></div>
                         </div>
                     </div>
                     <div v-if="locked" class="iphone-locked">
-                        
+    
                     </div>
                     <div v-if="lockScreen" class="iphone-lock-screen">
                         <div class="iphone-bar">
                             <p class="bar-info">Carrier</p>
                             <!-- <p class="bar-info">{{this.time}}</p> -->
-                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp"/>
+                            <img style="width: 22px; height: 10px;" src="../assets/battery.webp" />
                         </div>
                         <div class="iphone-lock-main">
                             <p style="color: white; font-weight: 200; font-size: 60px; margin: 0; padding: 0;">{{this.timeLock}}</p>
@@ -66,17 +66,29 @@
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
 .iphone {
     height: 660px;
     width: 340px;
     background: rgb(26, 25, 25);
-    border-radius: 55px;;
+    border-radius: 55px;
+    ;
     margin-top: 12px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.24);
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border: solid rgb(58,58,64, 0.5);
+    border: solid rgb(58, 58, 64, 0.5);
     flex-direction: column;
 }
 
@@ -188,6 +200,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    transition: all 0.5s ease-in;
 }
 
 .iphone-bar {
@@ -216,7 +229,7 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-content: center;
     align-items: center;
     margin-bottom: 200px;
@@ -252,7 +265,7 @@
 
 .button {
     border-radius: 50%;
-    border: solid rgb(106,106,106);
+    border: solid rgb(106, 106, 106);
     height: 54px;
     width: 54px;
     margin-bottom: 5px;
@@ -263,7 +276,7 @@
 }
 
 .button:active {
-    background: rgb(72,72,71);
+    background: rgb(72, 72, 71);
 }
 
 .resize-drag {
@@ -341,7 +354,7 @@
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background: rgb(221,220,220);
+    background: rgb(221, 220, 220);
 }
 
 .button-red:hover {
@@ -349,10 +362,6 @@
 }
 
 .button-yellow:hover {
-    cursor: pointer;
-}
-
-.button-green:hover {
     cursor: pointer;
 }
 
@@ -410,7 +419,7 @@ export default {
             lockScreen: true,
             resizeOption: {
                 edges: { top: true, left: true, bottom: true, right: true },
-                
+
             },
             positions: {
                 clientX: undefined,
@@ -427,7 +436,7 @@ export default {
                 ],
                 allowFrom: '.top-bar',
             },
-            
+
             // values for interact.js transformation
             x: 0,
             y: 0,

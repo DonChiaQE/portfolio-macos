@@ -17,11 +17,15 @@
                         <div class="heading"><b>Phase One: The Beginning</b></div>
                         <div class="paragraph">NOSSAFLEX started as two separate entities in the beginning. An idea that festered in my mind as an EXIF data logger app... for the Apple Watch. Sketches of the original app exist in images and they were created using Apple's Storyboarding system. It didn't make much sense to me but when I uploaded it onto online platforms like Reddit, the concept took off and it was an instant hit.</div>
                     </div>
+                    <img src="../assets/Nossaflex/watch.webp" class="images"/>
+                    <div class="subtitle">Initial Idea</div>
                     <div class="inner-content">
                         <div class="heading"><b>Phase Two: LUCE</b></div>
                         <div class="paragraph">Within my Reddit post was a request for help. I had just learnt how to create storyboards in Swift and was honestly afraid of letting my newfound audience down, I requested anybody with experience working with Swift to come forward and help out. By stroke of luck, I met Diego. Diego was a skilled CS graduate, he had plenty of experience with iOS development and he was more than happy to help out with development.</div>
                         <div class="paragraph">I was glad to have found some help for the app as I quickly learnt that an editor from The Phoblographer had contacted me asking about the Reddit post. Thankfully, Diego came to my rescue and mocked up some ideas for the app really swiftly (pun intended). The Phoblographer article can be found <a href="https://www.thephoblographer.com/2020/03/09/luce-an-app-that-could-help-analog-photographers-log-exif-data/">here</a>. Pretty neat eh?</div>
                     </div>
+                    <img src="../assets/Nossaflex/luce.webp" class="images-full"/>
+                    <div class="subtitle">LUCE</div>
                     <div class="inner-content">
                         <div class="heading"><b>Phase Three: Merger</b></div>
                         <div class="paragraph">Development started but around April we were contacted by a fan of ours about another app out there that was pretty similar to ours. It was named NOSSAFLEX and it piqued our interests. We quickly got into contact and realised that our idea were pretty much the same. Enter Josh, the brainchild of NOSSAFLEX. A naming system that gave meaning to a bunch of meaningless EXIF strings. NO stood for shot number, SS stood for shutter speed, A stood for aperture, FL stood for focal length and EX stood for exposure.</div>
@@ -33,15 +37,21 @@
                         <div class="paragraph">Then what's neumorphism? Well, neumorphism is skeumorphism reimagined with a dash of latex. Soft shadows coupled with muted whites and buttons that often created inner shadows gave a feel of pressing a rubber button. It looked and felt good the first few times, but after awhile, the design became a huge eyesore and also an accessibility issue. The shadows were unsightly and it got difficult to use the app after some time.</div>
                         <div class="paragraph">Thankfully, the design was quickly scrapped during the beta phase and we opted for a much simpler and friendly design.</div>
                     </div>
+                    <img src="../assets/Nossaflex/neumorphism.webp" class="images-full"/>
+                    <div class="subtitle">Why neumorphism is a bad idea</div>
                     <div class="inner-content">
                         <div class="heading"><b>Phase Five: Sketchbook</b></div>
                         <div class="paragraph">The next design we opted for was a much friendlier notebook-esque look. Grid paper, highlighted text coupled with a warm yellow tint for the sketchbook feel gave the app a welcoming feel. The app needed a makeover fast and I quickly got into action, converting all old components into the more clean and sleek design. Josh furthered the design by creating lottie animations that played whenever the users booted up the app, patents of a variety of camera equipments and accessories were painstakingly drawn out by Josh.</div>
                         <div class="paragraph">Diego on the other hand tolled hard to ensure that our much anticipated feature, the lightmeter, got pushed out on time. The app was finally completed around the end of December and the final rounds of beta testing was ending.</div>
                     </div>
+                    <img src="../assets/Nossaflex/notebook.webp" class="images-full"/>
+                    <div class="subtitle">Sketchbook Design</div>
                     <div class="inner-content">
                         <div class="heading"><b>Phase Six: App Store Launch</b></div>
                         <div class="paragraph">The app was finally launched on 5th February of 2021 after over a year of development. It was an instant hit with the community, garnering support from Reddit, Youtube and Facebook forums alike. Users from all around the world signed up for the app and we had over a thousand users within the first week. Thousands of pieces of data was being logged daily by users and we were heartened to see daily usage in our app.</div>
                     </div>
+                    <img src="../assets/Nossaflex/appstore.webp" class="images-full"/>
+                    <div class="subtitle">We're live!</div>
                     <div class="inner-content">
                         <div class="heading"><b>Phase Seven: Beyond iOS</b></div>
                         <div class="paragraph">Now that iOS was done, we set our sights for the next frontier, the Web and Android. Our current goal is to create a web app that users are able to access through their phones or laptops, allowing them to attach EXIF data to their photo with much more ease.</div>
@@ -114,9 +124,24 @@
     background-image: url('../assets/Nossaflex/hero_light.webp');
 }
 
+.images {
+    width: 100%;
+    border-radius: 5px;
+    height: 350px ;
+    object-fit: cover;
+}
+
+.images-full {
+    width: 100%;
+    border-radius: 5px;
+    height: auto ;
+    object-fit: cover;
+}
+
 .subtitle {
     font-size: 12px;
     color: gray;
+    text-align: center;
 }
 
 .heading {
