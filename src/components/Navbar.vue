@@ -6,7 +6,7 @@
               <div alt="Photos" class="icon-photo icon" v-on:click="showPhotos"></div>
               <div alt="Mail" class="icon-mail icon" v-on:click="showMail"></div>
               <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div>
-              <div class="icon-wip icon"></div>
+              <div alt="Github" onclick="window.location='https://github.com/dhs17y2adonchia'" class="icon-github icon"></div>
               <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div>
           </div>
         </div>
@@ -129,6 +129,13 @@
 
 .icon-stickies {
     background-image: url('../assets/Icons/Stickies.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-github {
+    background-image: url('../assets/Icons/Github.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

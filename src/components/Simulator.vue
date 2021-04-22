@@ -35,15 +35,15 @@
                                     <div class="subtitle">GitHub</div>
                                 </div>
                                 <div class="column">
-                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"  />
+                                    <img style="cursor: pointer;" src="../assets/iPhone-Icons/Twitter.webp" onclick="window.location='https://twitter.com/lizarDON2303'" class="iphone-grid-icon"  />
+                                    <div class="subtitle">Twitter</div>
+                                </div>
+                                <div class="column">
+                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" class="iphone-grid-icon" />
                                     <div class="subtitle">Installing...</div>
                                 </div>
                                 <div class="column">
-                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon" />
-                                    <div class="subtitle">Installing...</div>
-                                </div>
-                                <div class="column">
-                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon" />
+                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" class="iphone-grid-icon" />
                                     <div class="subtitle">Installing...</div>
                                 </div>
                             </div>
@@ -291,12 +291,13 @@
 .subtitle {
     margin-top: 4px;
     font-size: 10px;
-    color: rgb(75, 75, 75);
+    color: white;
+    font-weight: 500;
 }
 
 .iphone-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
