@@ -28,12 +28,31 @@
                             <p class="bar-info">{{this.time}}</p>
                             <img style="width: 22px; height: 10px;" src="../assets/battery.webp" />
                         </div>
-                        <div class="iphone-grid"></div>
+                        <div class="iphone-grid">
+                            <div class="row">
+                                <div class="column">
+                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <div class="subtitle">Installing...</div>
+                                </div>
+                                <div class="column">
+                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <div class="subtitle">Installing...</div>
+                                </div>
+                                <div class="column">
+                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <div class="subtitle">Installing...</div>
+                                </div>
+                                <div class="column">
+                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <div class="subtitle">Installing...</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="iphone-nav">
-                            <a href="https://www.instagram.com/__dontax__" class="iphone-icon icon-wip"></a>
-                            <div class="iphone-icon icon-wip"></div>
-                            <div class="iphone-icon icon-wip"></div>
-                            <div class="iphone-icon icon-wip"></div>
+                            <a href="https://www.instagram.com/__dontax__" class="iphone-icon instagram-icon"></a>
+                            <a href="https://www.reddit.com/user/satoshigekkouga2303" class="iphone-icon reddit-icon"></a>
+                            <a href="https://www.linkedin.com/in/don-chia-0b518b160/" class="iphone-icon linkedin-icon"></a>
+                            <a href="https://apps.apple.com/app/nossaflex/id1523558285" class="iphone-icon nossaflex-icon"></a>
                         </div>
                     </div>
                     <div v-if="locked" class="iphone-locked">
@@ -225,6 +244,21 @@
     flex-grow: 1;
 }
 
+.column {
+    margin-top: 10px;
+    float: left;
+    width: 25%;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row:after {
+    display: table;
+}
+
 .iphone-lock-main {
     flex-grow: 1;
     display: flex;
@@ -245,15 +279,58 @@
     align-content: space-between;
 }
 
-.iphone-icon {
+.iphone-grid-icon {
     width: 50px;
     height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.subtitle {
+    margin-top: 2px;
+    font-size: 10px;
+    color: rgb(75, 75, 75);
+}
+
+.iphone-icon {
+    width: 45px;
+    height: 45px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
     background: none;
+}
+
+.instagram-icon {
+    background-image: url('../assets/iPhone-Icons/Instagram.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.reddit-icon {
+    background-image: url('../assets/iPhone-Icons/Reddit.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.linkedin-icon {
+    background-image: url('../assets/iPhone-Icons/Linkedin.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.nossaflex-icon {
+    background-image: url('../assets/iPhone-Icons/Nossaflex.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .icon-wip {
