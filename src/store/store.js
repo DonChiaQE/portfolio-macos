@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
     // Stickies window
     isShownStickies: false,
     isFullscreenStickies: false,
-    notepadData: 'Why are you looking at this?',
+    notepadData: 'Stickies!',
     // Mail window
     isShownMail: false,
     isFullscreenMail: false,
