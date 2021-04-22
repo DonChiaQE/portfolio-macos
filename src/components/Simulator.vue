@@ -31,19 +31,19 @@
                         <div class="iphone-grid">
                             <div class="row">
                                 <div class="column">
-                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <img style="cursor: pointer;" src="../assets/iPhone-Icons/Github.webp" class="iphone-grid-icon" onclick="window.location='https://github.com/dhs17y2adonchia'" />
+                                    <div class="subtitle">GitHub</div>
+                                </div>
+                                <div class="column">
+                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"  />
                                     <div class="subtitle">Installing...</div>
                                 </div>
                                 <div class="column">
-                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon" />
                                     <div class="subtitle">Installing...</div>
                                 </div>
                                 <div class="column">
-                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
-                                    <div class="subtitle">Installing...</div>
-                                </div>
-                                <div class="column">
-                                    <img src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon"/>
+                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" target="https://www.instagram.com/__dontax__" class="iphone-grid-icon" />
                                     <div class="subtitle">Installing...</div>
                                 </div>
                             </div>
@@ -289,7 +289,7 @@
 }
 
 .subtitle {
-    margin-top: 2px;
+    margin-top: 4px;
     font-size: 10px;
     color: rgb(75, 75, 75);
 }
