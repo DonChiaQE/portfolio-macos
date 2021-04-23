@@ -31,28 +31,36 @@
                         <div class="iphone-grid">
                             <div class="row">
                                 <div class="column">
-                                    <img style="cursor: pointer;" src="../assets/iPhone-Icons/Github.webp" class="iphone-grid-icon" onclick="window.location='https://github.com/dhs17y2adonchia'" />
-                                    <div class="subtitle">GitHub</div>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/dhs17y2adonchia" style="text-align: center; text-decoration: none;">
+                                        <img style="cursor: pointer;" src="../assets/iPhone-Icons/Github.webp" class="iphone-grid-icon" />
+                                        <div style="margin: 0; padding: 0;" class="subtitle">GitHub</div>
+                                    </a>
                                 </div>
                                 <div class="column">
-                                    <img style="cursor: pointer;" src="../assets/iPhone-Icons/Twitter.webp" onclick="window.location='https://twitter.com/lizarDON2303'" class="iphone-grid-icon"  />
-                                    <div class="subtitle">Twitter</div>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/lizarDON2303" style="text-align: center; text-decoration: none;">
+                                        <img style="cursor: pointer;" src="../assets/iPhone-Icons/Twitter.webp" class="iphone-grid-icon"  />
+                                        <div style="margin: 0; padding: 0;" class="subtitle">Twitter</div>
+                                    </a>
                                 </div>
                                 <div class="column">
+                                     <a style="text-align: center; text-decoration: none;">
+                                        <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" class="iphone-grid-icon" />
+                                        <div style="margin: 0; padding: 0;" class="subtitle">Installing...</div>
+                                     </a>
+                                </div>
+                                <div class="column">
+                                    <a style="text-align: center; text-decoration: none;">
                                     <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" class="iphone-grid-icon" />
-                                    <div class="subtitle">Installing...</div>
-                                </div>
-                                <div class="column">
-                                    <img style="cursor: not-allowed;" src="../assets/Icons/WIP.webp" class="iphone-grid-icon" />
-                                    <div class="subtitle">Installing...</div>
+                                    <div style="margin: 0; padding: 0;" class="subtitle">Installing...</div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="iphone-nav">
-                            <a href="https://www.instagram.com/__dontax__" class="iphone-icon instagram-icon"></a>
-                            <a href="https://www.reddit.com/user/satoshigekkouga2303" class="iphone-icon reddit-icon"></a>
-                            <a href="https://www.linkedin.com/in/don-chia-0b518b160/" class="iphone-icon linkedin-icon"></a>
-                            <a href="https://apps.apple.com/app/nossaflex/id1523558285" class="iphone-icon nossaflex-icon"></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/__dontax__" class="iphone-icon instagram-icon"></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/user/satoshigekkouga2303" class="iphone-icon reddit-icon"></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/don-chia-0b518b160/" class="iphone-icon linkedin-icon"></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://apps.apple.com/app/nossaflex/id1523558285" class="iphone-icon nossaflex-icon"></a>
                         </div>
                     </div>
                     <div v-if="locked" class="iphone-locked">
