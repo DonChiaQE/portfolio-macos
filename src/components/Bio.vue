@@ -45,7 +45,7 @@
                                 helping assemble Josh's ideas into reality using SwiftUI.</div>
                             <div class="paragraph">We recently launched our app onto the international App Store, exclusively for iOS and we are proud to see the support the Analog community has given us. Over 1k new and unique users signed up for the app within the first weeks
                                 of the launch, not too shabby considering how niche our target group is.</div>
-                            <div class="paragraph">You can find out more about NOSSAFLEX by clicking <span style="cursor: pointer; color: blue;" v-on:click="showNossaflex">here</span>.</div>
+                            <div class="paragraph">You can find out more about NOSSAFLEX by clicking <span style="cursor: pointer; color: #FF5733;" v-on:click="showNossaflex">here</span>.</div>
                         </div>
 
                         <div class="inner-content">
@@ -57,13 +57,13 @@
                         <div class="inner-content">
                             <div class="heading"><b>iOS Developer</b></div>
                             <div class="paragraph">As listed above, I have over a year of experience with SwiftUI and have had plenty of projects that features the use of SwiftUI. SwiftUI was used in most of the components building NOSSAFLEX and the components featured required custom styling to fit our themeing. I have also had the chance to participate in two WWDC Student Challenges in 2020 as well as 2021, both projects featured SwiftUI and a variety of other Swift technologies.</div>
-                            <div class="paragraph">Here are some of the projects I have contributed towards. <a href="https://github.com/dhs17y2adonchia/WWDC2021">[Submission for WWDC 2021]</a> <a href="https://github.com/dhs17y2adonchia/push-pop-push-views-swiftui-example">[Push and Popping Solution for SwiftUI]</a></div>
+                            <div class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/WWDC2021">[Submission for WWDC 2021]</a> <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/push-pop-push-views-swiftui-example">[Push and Popping Solution for SwiftUI]</a></div>
                         </div>
 
                         <div class="inner-content">
                             <div class="heading"><b>Web Developer</b></div>
                             <div class="paragraph">As a web developer, I have also had a lot of chances to practice and participate in projects to further hone my skills. I have plenty of experience with backend Python as well as databases using SQL or NoSQL solutions. But most of my time is dedicated to frontend development using Vuejs and elaborate styling of websites (such as this one 😁).</div>
-                            <div class="paragraph">Here are some of the projects I have contributed towards. <a href="https://github.com/dunmanhigh-isac/dhap-2021">[MUN Website for School]</a> <a href="https://github.com/dhs17y2adonchia/marketplace">[CMS Marketplace]</a> <a href="https://github.com/zaydek/duomo">[SCSS Library]</a></div>
+                            <div class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/dunmanhigh-isac/dhap-2021">[MUN Website for School]</a> <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/marketplace">[CMS Marketplace]</a> <a style="color: #FF5733;" href="https://github.com/zaydek/duomo">[SCSS Library]</a></div>
                         </div>
 
                         <div class="inner-content">
@@ -73,12 +73,12 @@
 
                         <div class="inner-content">
                             <div class="heading"><b>Interests and Hobbies</b></div>
-                            <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: blue;" v-on:click="showPhotos">here</span> while you can find my colorization portfolio <span style="cursor: pointer; color: blue;" v-on:click="showColorization">here</span>.</div>
+                            <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: #FF5733;" v-on:click="showPhotos">here</span> while you can find my colorization portfolio <span style="cursor: pointer; color: #FF5733;" v-on:click="showColorization">here</span>.</div>
                         </div>
 
                         <div class="inner-content">
                             <div class="heading"><b>Résumé</b></div>
-                            <a href="/files/resume.pdf" class="paragraph">Check out my résumé here.</a>
+                            <a style="color: #FF5733;" href="/files/resume.pdf" class="paragraph">Check out my résumé here.</a>
                         </div>                
                 </div>
             </div>

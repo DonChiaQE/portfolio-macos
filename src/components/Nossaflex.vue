@@ -57,7 +57,7 @@
                         <div class="paragraph">Now that iOS was done, we set our sights for the next frontier, the Web and Android. Our current goal is to create a web app that users are able to access through their phones or laptops, allowing them to attach EXIF data to their photo with much more ease.</div>
                     </div>
                     <br>
-                    <a href="https://www.nossaflex.io" style="padding-bottom: 80px; ">NOSSAFLEX</a>
+                    <a href="https://www.nossaflex.io" style="padding-bottom: 80px; color: #FF5733;">NOSSAFLEX</a>
                 </div>
             </div>
             <!-- <div class="resizer resizer-b"></div>
