@@ -14,7 +14,7 @@
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenBio }">
                     <img class="self" src="../assets/Biography/self.webp" />
                     <div class="header">Don Chia</div>
-                    <div class="subtitle">Web Developer | iOS Developer | UI/UX Designer</div>
+                    <div class="subtitle">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021</div>
                     <div class="subtitle">Singapore 📍</div>
                     <div class="badge-grid">
                         <img class="badge" alt="Swift" src="https://img.shields.io/badge/-Swift-orange" />
@@ -46,6 +46,13 @@
                             <div class="paragraph">We recently launched our app onto the international App Store, exclusively for iOS and we are proud to see the support the Analog community has given us. Over 1k new and unique users signed up for the app within the first weeks
                                 of the launch, not too shabby considering how niche our target group is.</div>
                             <div class="paragraph">You can find out more about NOSSAFLEX by clicking <span style="cursor: pointer; color: #FF5733;" v-on:click="showNossaflex">here</span>.</div>
+                        </div>
+
+                        <div class="inner-content">
+                            <div class="heading"><b>Apple WWDC Scholar 2021</b></div>
+                            <div class="paragraph">My second try at Apple's international coding competition was finally a successful one. Making use of my prowess with web development, I decided to create a Swift Playground project that taught users how to make use of HTML and CSS to create a simple website.</div>
+                            <div class="paragraph">Making use of Apple's SwiftUI framework as well as the nifty WKWebView API, I managed to create a working editor that would allow users to meddle with HTML and CSS. I proceeded to create a playground book project around that idea and came up with a tutorial sequence for the user to follow.</div>
+                            <div class="paragraph">Check out my submission <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/WWDC2021">here</a>!</div>
                         </div>
 
                         <div class="inner-content">
