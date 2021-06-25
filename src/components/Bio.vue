@@ -53,6 +53,7 @@
                             <div class="paragraph">My second try at Apple's international coding competition was finally a successful one. Making use of my prowess with web development, I decided to create a Swift Playground project that taught users how to make use of HTML and CSS to create a simple website.</div>
                             <div class="paragraph">Making use of Apple's SwiftUI framework as well as the nifty WKWebView API, I managed to create a working editor that would allow users to meddle with HTML and CSS. I proceeded to create a playground book project around that idea and came up with a tutorial sequence for the user to follow.</div>
                             <div class="paragraph">Check out my submission <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/WWDC2021">here</a>!</div>
+                            <div class="paragraph">And check out my interview with the local news outlet regarding NOSSAFLEX and my WWDC experience <a style="color: #FF5733;" href="https://www.youtube.com/watch?v=RwtzXxSSJAc">right here</a>!</div>
                         </div>
 
                         <div class="inner-content">
