@@ -13,7 +13,7 @@
             <div class="content">
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenBio }">
                     <img class="self" src="../assets/Biography/self.webp" />
-                    <div class="header">Don Chia</div>
+                    <div class="header">Don Chia (谢祺恩)</div>
                     <div class="subtitle">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021</div>
                     <div class="subtitle">Singapore 📍</div>
                     <div class="badge-grid">
